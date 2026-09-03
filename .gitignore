@@ -1,0 +1,33 @@
+docs/
+AGENTS.md
+# ========== Java ==========
+target/
+*.jar
+*.log
+
+# ========== Node ==========
+node_modules/
+dist/
+
+# ========== Python ==========
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.env.production
+
+# ========== IDE ==========
+.idea/
+.vscode/
+
+# ========== OS ==========
+.DS_Store
+
+# ========== Docker ==========
+*.pid
+
+# ========== SSL certificates ==========
+gateway/nginx/certs/*
+!gateway/nginx/certs/streamradar/
+!gateway/nginx/certs/streamradar/.gitkeep
