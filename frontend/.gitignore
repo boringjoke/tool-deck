@@ -9,6 +9,11 @@ lerna-debug.log*
 
 node_modules
 .DS_Store
+
+# Nuxt generated files
+.nuxt/
+.output/
+
 dist
 dist-ssr
 coverage
@@ -34,6 +39,3 @@ coverage
 
 # Vitest
 __screenshots__/
-
-# Vite
-*.timestamp-*-*.mjs
