@@ -1,5 +1,6 @@
 import type { ClipboardOperationResult } from './clipboard'
 
+/** 根据工具标识和文件扩展名生成下载文件名。 */
 export function createDownloadFileName(
   slug: string,
   extension: string,
@@ -12,6 +13,7 @@ export function createDownloadFileName(
   return `${slug}-${date}.${extension.replace(/^\./u, '')}`
 }
 
+/** 将文本内容转换为文件并触发浏览器下载。 */
 export function downloadText(
   content: string,
   fileName: string,

@@ -1733,6 +1733,211 @@ a {
   min-height: 136px;
 }
 
+.unit-converter-tool > .tool-result-panel {
+  display: flex;
+  min-width: 0;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.unit-converter-tool > .tool-result-panel .tool-panel__body {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.unit-converter-tool__input {
+  min-height: 42px;
+}
+
+.unit-converter-tool__output {
+  min-height: 112px;
+  align-content: center;
+  margin-top: 0;
+}
+
+.unit-converter-tool__output .output-block__value {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.unit-converter-tool__stale-note {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.unit-converter-tool__preserved-result {
+  grid-column: 1 / -1;
+}
+
+.unit-converter-tool__preserved-result .tool-note {
+  margin-top: -4px;
+  margin-bottom: 12px;
+}
+
+.number-to-chinese-tool > .tool-result-panel {
+  display: flex;
+  min-width: 0;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.number-to-chinese-tool > .tool-result-panel .tool-panel__body {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.number-to-chinese-tool__mode-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.number-to-chinese-tool__mode-tab {
+  min-height: 32px;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface);
+  color: var(--td-text-muted);
+  cursor: pointer;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+}
+
+.number-to-chinese-tool__mode-tab:hover {
+  border-color: var(--td-border-strong);
+  color: var(--td-text);
+}
+
+.number-to-chinese-tool__mode-tab--active {
+  border-color: var(--td-primary);
+  background: var(--td-primary);
+  color: #fff;
+}
+
+.number-to-chinese-tool__mode-tab--active:hover {
+  border-color: var(--td-primary-hover);
+  background: var(--td-primary-hover);
+  color: #fff;
+}
+
+.number-to-chinese-tool__mode-tab:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.number-to-chinese-tool__input {
+  min-height: 220px;
+}
+
+.number-to-chinese-tool__output {
+  min-height: 112px;
+  align-content: center;
+  margin-top: 0;
+}
+
+.number-to-chinese-tool__output .output-block__value {
+  overflow-wrap: anywhere;
+  word-break: break-all;
+}
+
+.number-to-chinese-tool__preserved-result {
+  grid-column: 1 / -1;
+}
+
+.number-to-chinese-tool__preserved-result .tool-note {
+  margin-top: -4px;
+  margin-bottom: 12px;
+}
+
+.simplified-traditional-tool > .tool-result-panel {
+  display: flex;
+  min-width: 0;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.simplified-traditional-tool > .tool-result-panel .tool-panel__body {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.simplified-traditional-tool__mode-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.simplified-traditional-tool__mode-tab {
+  min-height: 32px;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface);
+  color: var(--td-text-muted);
+  cursor: pointer;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+}
+
+.simplified-traditional-tool__mode-tab:hover {
+  border-color: var(--td-border-strong);
+  color: var(--td-text);
+}
+
+.simplified-traditional-tool__mode-tab--active {
+  border-color: var(--td-primary);
+  background: var(--td-primary);
+  color: #fff;
+}
+
+.simplified-traditional-tool__mode-tab--active:hover {
+  border-color: var(--td-primary-hover);
+  background: var(--td-primary-hover);
+  color: #fff;
+}
+
+.simplified-traditional-tool__mode-tab:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.simplified-traditional-tool__input {
+  min-height: 220px;
+}
+
+.simplified-traditional-tool__output {
+  min-height: 112px;
+  align-content: flex-start;
+  margin-top: 0;
+}
+
+.simplified-traditional-tool__output .output-block__value {
+  display: block;
+  max-height: 420px;
+  overflow: auto;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.simplified-traditional-tool__preserved-result {
+  grid-column: 1 / -1;
+}
+
+.simplified-traditional-tool__preserved-result .tool-note {
+  margin-top: -4px;
+  margin-bottom: 12px;
+}
+
 .json-workbench-tool > .tool-result-panel {
   display: flex;
   min-width: 0;
@@ -1747,8 +1952,112 @@ a {
   flex-direction: column;
 }
 
-.json-workbench-tool__input {
+.json-workbench-tool__mode-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.json-workbench-tool__mode-tab {
+  min-height: 32px;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface);
+  color: var(--td-text-muted);
+  cursor: pointer;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+}
+
+.json-workbench-tool__mode-tab:hover {
+  border-color: var(--td-border-strong);
+  color: var(--td-text);
+}
+
+.json-workbench-tool__mode-tab--active {
+  border-color: var(--td-primary);
+  background: var(--td-primary);
+  color: #fff;
+}
+
+.json-workbench-tool__mode-tab--active:hover {
+  border-color: var(--td-primary-hover);
+  background: var(--td-primary-hover);
+  color: #fff;
+}
+
+.json-workbench-tool__mode-tab:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.json-workbench-tool__editor {
+  position: relative;
+  min-width: 0;
   min-height: 280px;
+  overflow: hidden;
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+}
+
+.json-workbench-tool__editor:focus-within {
+  background: var(--td-surface);
+}
+
+.json-workbench-tool__editor-highlights {
+  position: absolute;
+  z-index: 0;
+  inset: 1px;
+  min-width: 0;
+  margin: 0;
+  padding: 10px 12px;
+  color: transparent;
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: 1.65;
+  pointer-events: none;
+  user-select: none;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  tab-size: 8;
+}
+
+.json-workbench-tool__editor-highlights code {
+  display: block;
+  font: inherit;
+}
+
+.json-workbench-tool__editor-highlight-line {
+  display: block;
+  min-width: 0;
+  min-height: 1.65em;
+  color: transparent;
+}
+
+.json-workbench-tool__editor-highlight-line--error {
+  background: #fff4f2;
+  box-shadow: inset 4px 0 0 #efb4ad;
+}
+
+.json-workbench-tool__input {
+  position: relative;
+  z-index: 1;
+  display: block;
+  min-height: 280px;
+  background: transparent;
+  tab-size: 8;
+}
+
+.json-workbench-tool__input:focus {
+  background: transparent;
+}
+
+.json-workbench-tool__input::selection {
+  background: rgb(37 99 235 / 22%);
+  color: transparent;
 }
 
 .json-workbench-tool__output {
@@ -1798,6 +2107,55 @@ a {
 
   .base-converter-tool__value {
     min-height: 120px;
+  }
+
+  .unit-converter-tool__input {
+    min-height: 38px;
+  }
+
+  .number-to-chinese-tool__mode-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .number-to-chinese-tool__mode-tab {
+    width: 100%;
+    padding: 0 8px;
+  }
+
+  .number-to-chinese-tool__input {
+    min-height: 180px;
+  }
+
+  .simplified-traditional-tool__mode-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .simplified-traditional-tool__mode-tab {
+    width: 100%;
+    padding: 0 8px;
+  }
+
+  .simplified-traditional-tool__input {
+    min-height: 180px;
+  }
+
+  .json-workbench-tool__editor {
+    min-height: 220px;
+  }
+
+  .json-workbench-tool__mode-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .json-workbench-tool__mode-tab {
+    width: 100%;
+    padding: 0 8px;
   }
 
   .json-workbench-tool__input {
@@ -2542,6 +2900,120 @@ a {
 
   .timestamp-tool__input-mode {
     padding: 0 8px;
+  }
+}
+
+/* Date calculator: quiet controls with a clear two-mode calculation rail. */
+.date-time-calculator-tool {
+  gap: 14px 18px;
+}
+
+.date-time-calculator-tool__mode-tabs {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.date-time-calculator-tool__mode-tab {
+  min-height: 32px;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface);
+  color: var(--td-text-muted);
+  cursor: pointer;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+}
+
+.date-time-calculator-tool__mode-tab:hover {
+  border-color: var(--td-border-strong);
+  color: var(--td-text);
+}
+
+.date-time-calculator-tool__mode-tab--active {
+  border-color: var(--td-primary);
+  background: var(--td-primary);
+  color: #fff;
+}
+
+.date-time-calculator-tool__mode-tab--active:hover {
+  border-color: var(--td-primary-hover);
+  background: var(--td-primary-hover);
+  color: #fff;
+}
+
+.date-time-calculator-tool__date-input,
+.date-time-calculator-tool__time-input,
+.date-time-calculator-tool__amount-input {
+  min-width: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.date-time-calculator-tool > .tool-input-panel,
+.date-time-calculator-tool > .tool-result-panel,
+.date-time-calculator-tool .tool-panel__body,
+.date-time-calculator-tool__date-groups,
+.date-time-calculator-tool__date-group {
+  min-width: 0;
+}
+
+.date-time-calculator-tool__date-groups {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+}
+
+.date-time-calculator-tool__date-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+  gap: 12px;
+  align-items: end;
+}
+
+.date-time-calculator-tool__date-group--single {
+  max-width: 720px;
+}
+
+.date-time-calculator-tool__stale-note {
+  margin-top: 0;
+  color: var(--td-amber);
+}
+
+.date-time-calculator-tool__stats {
+  margin-bottom: 14px;
+}
+
+.date-time-calculator-tool__breakdown,
+.date-time-calculator-tool__date-output {
+  margin-top: 0;
+}
+
+.date-time-calculator-tool__breakdown .output-block__value,
+.date-time-calculator-tool__date-output .output-block__value {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+@media (max-width: 640px) {
+  .date-time-calculator-tool {
+    gap: 14px;
+  }
+
+  .date-time-calculator-tool__mode-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .date-time-calculator-tool__mode-tab {
+    width: 100%;
+    text-align: left;
+  }
+
+  .date-time-calculator-tool__date-group {
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 }
 

@@ -14,6 +14,7 @@ const props = withDefaults(defineProps<{
 const feedback = ref('')
 const isWorking = ref(false)
 
+/** 处理复制按钮点击并更新复制状态提示。 */
 async function handleCopy() {
   if (props.disabled || !props.text || isWorking.value) {
     return

@@ -39,10 +39,12 @@ const status = computed<ToolUiStatus>(() => {
   return 'success'
 })
 
+/** 将数值转换为指定宽度的零填充文本。 */
 function pad(value: number, width = 2): string {
   return String(value).padStart(width, '0')
 }
 
+/** 将日期按指定时区格式化为输入控件值。 */
 function formatDateTimePickerValue(date: Date, timezone: TimezoneMode): string {
   const values = timezone === 'utc'
     ? {
@@ -67,6 +69,7 @@ function formatDateTimePickerValue(date: Date, timezone: TimezoneMode): string {
   return `${pad(values.year, 4)}-${pad(values.month)}-${pad(values.day)}T${pad(values.hour)}:${pad(values.minute)}:${pad(values.second)}.${pad(values.millisecond, 3)}`
 }
 
+/** 规范化日期时间控件值并按时区转换。 */
 function normalizeDateTimePickerValue(value: string, timezone: TimezoneMode): string {
   const input = value.trim()
 
@@ -107,16 +110,19 @@ const resultText = computed(() => {
   ].join('\n')
 })
 
+/** 清除当前时间戳转换结果。 */
 function clearResult() {
   result.value = null
   error.value = null
 }
 
+/** 切换工具模式并重置模式相关状态。 */
 function setMode(nextMode: TimestampMode) {
   mode.value = nextMode
   clearResult()
 }
 
+/** 切换时间戳工具的日期输入模式。 */
 function setDateInputMode(nextMode: DateInputMode) {
   if (dateInputMode.value === nextMode) {
     return
@@ -136,6 +142,7 @@ function setDateInputMode(nextMode: DateInputMode) {
   clearResult()
 }
 
+/** 执行当前工具的日期或时间转换。 */
 function convert() {
   const conversion = mode.value === 'timestamp-to-date'
     ? convertTimestamp(timestampValue.value, timestampUnit.value)
@@ -154,6 +161,7 @@ function convert() {
   error.value = null
 }
 
+/** 将当前浏览器时间填入输入控件。 */
 function fillCurrentTime() {
   if (mode.value === 'timestamp-to-date') {
     const milliseconds = Date.now()
@@ -169,6 +177,7 @@ function fillCurrentTime() {
   convert()
 }
 
+/** 清空时间戳工具的当前状态。 */
 function handleClear() {
   timestampValue.value = ''
   datePickerValue.value = ''

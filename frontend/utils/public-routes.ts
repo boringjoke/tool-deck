@@ -4,6 +4,7 @@ import type { ToolCategory, ToolDefinition } from '../types/tool'
 
 const STATIC_PUBLIC_ROUTE_PATHS = ['/', '/about', '/privacy'] as const
 
+/** 获取正式公开工具和页面的静态路由列表。 */
 export function getPublicRoutePaths(
   categories: readonly Pick<ToolCategory, 'slug'>[] = TOOL_CATEGORIES,
   tools: readonly Pick<ToolDefinition, 'slug' | 'status'>[] = TOOL_REGISTRY,

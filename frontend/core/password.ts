@@ -40,6 +40,7 @@ export const PASSWORD_CHARSETS: Readonly<Record<PasswordCharacterType, string>> 
 export const ACCOUNT_CHARSET = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
 export const ACCOUNT_PART_PATTERN = /^[A-Za-z0-9._-]*$/u
 
+/** 校验整数选项是否处于指定范围内。 */
 function validateInteger(value: number, min: number, max: number, label: string): ToolResult<void> {
   if (!Number.isInteger(value) || value < min || value > max) {
     return failure('out-of-range', `${label}必须是 ${min}–${max} 之间的整数。`)
@@ -48,6 +49,7 @@ function validateInteger(value: number, min: number, max: number, label: string)
   return success(undefined)
 }
 
+/** 使用安全随机源生成字符数组索引。 */
 function getRandomIndex(source: SecureRandomSource, length: number): ToolResult<number> {
   if (length <= 0) {
     return failure('operation-failed', '随机字符集不能为空。')
@@ -69,6 +71,7 @@ function getRandomIndex(source: SecureRandomSource, length: number): ToolResult<
   return success(randomValue % length)
 }
 
+/** 使用安全随机源选择字符集中的一个字符。 */
 function getRandomCharacter(source: SecureRandomSource, charset: string): ToolResult<string> {
   const indexResult = getRandomIndex(source, charset.length)
 
@@ -77,6 +80,7 @@ function getRandomCharacter(source: SecureRandomSource, charset: string): ToolRe
     : indexResult
 }
 
+/** 使用安全随机源打乱字符数组。 */
 function shuffle(source: SecureRandomSource, values: string[]): ToolResult<string[]> {
   for (let index = values.length - 1; index > 0; index -= 1) {
     const randomIndexResult = getRandomIndex(source, index + 1)
@@ -94,6 +98,7 @@ function shuffle(source: SecureRandomSource, values: string[]): ToolResult<strin
   return success(values)
 }
 
+/** 获取密码配置中已选的字符类型。 */
 function selectedCharacterTypes(options: PasswordOptions): PasswordCharacterType[] {
   return [
     ...(options.includeLowercase ? ['lowercase' as const] : []),
@@ -103,6 +108,7 @@ function selectedCharacterTypes(options: PasswordOptions): PasswordCharacterType
   ]
 }
 
+/** 校验密码生成配置并返回可用字符类型。 */
 function validatePasswordOptions(options: PasswordOptions): ToolResult<PasswordCharacterType[]> {
   const lengthResult = validateInteger(
     options.length,
@@ -139,6 +145,7 @@ function validatePasswordOptions(options: PasswordOptions): ToolResult<PasswordC
   return success(types)
 }
 
+/** 校验账号生成配置。 */
 function validateAccountOptions(options: AccountOptions): ToolResult<void> {
   const lengthResult = validateInteger(
     options.length,
@@ -162,6 +169,7 @@ function validateAccountOptions(options: AccountOptions): ToolResult<void> {
   return success(undefined)
 }
 
+/** 根据配置生成一条安全随机密码。 */
 function generatePassword(
   options: PasswordOptions,
   types: readonly PasswordCharacterType[],
@@ -195,6 +203,7 @@ function generatePassword(
   return shuffledResult.ok ? success(shuffledResult.value.join('')) : shuffledResult
 }
 
+/** 根据账号配置生成一个随机用户名。 */
 function generateUsername(options: AccountOptions, source: SecureRandomSource): ToolResult<string> {
   const bodyLength = options.length - options.prefix.length - options.suffix.length
   const body: string[] = []
@@ -212,6 +221,7 @@ function generateUsername(options: AccountOptions, source: SecureRandomSource): 
   return success(`${options.prefix}${body.join('')}${options.suffix}`)
 }
 
+/** 批量生成账号和密码组合结果。 */
 export function generateCredentials(
   accountOptions: AccountOptions,
   passwordOptions: PasswordOptions,

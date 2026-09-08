@@ -18,6 +18,7 @@ const statItems = computed(() => [
 ])
 const copyText = computed(() => statItems.value.map((item) => `${item.label}：${item.value}`).join('\n'))
 
+/** 清空当前工具的文本输入。 */
 function clearInput() {
   text.value = ''
 }

@@ -30,6 +30,7 @@ const hasResettableState = computed(() => Boolean(
   || addPrefix.value,
 ))
 
+/** 执行当前工具的日期或时间转换。 */
 function convert() {
   const result = convertBase({
     value: value.value,
@@ -49,6 +50,7 @@ function convert() {
   error.value = null
 }
 
+/** 清空当前工具的输入、结果和错误状态。 */
 function clearAll() {
   value.value = ''
   fromBase.value = 10

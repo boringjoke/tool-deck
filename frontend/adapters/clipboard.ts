@@ -3,6 +3,7 @@ export interface ClipboardOperationResult {
   message: string
 }
 
+/** 将文本复制到系统剪贴板，并返回复制结果。 */
 export async function copyText(value: string): Promise<ClipboardOperationResult> {
   if (!value) {
     return {

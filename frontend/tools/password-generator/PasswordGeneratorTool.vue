@@ -38,6 +38,7 @@ const resultText = computed(() => results.value
   .map((item) => `${item.username}\t${item.password}`)
   .join('\n'))
 
+/** 按当前配置生成工具结果。 */
 function generate() {
   const source = getSecureRandomSource()
 
@@ -77,6 +78,7 @@ function generate() {
   error.value = null
 }
 
+/** 清空当前工具的输入、结果和错误状态。 */
 function clearAll() {
   count.value = 1
   passwordLength.value = 16

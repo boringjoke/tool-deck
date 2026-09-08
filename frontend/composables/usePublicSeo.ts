@@ -7,6 +7,7 @@ interface PublicSeoOptions {
   pathname: string
 }
 
+/** 根据工具页面信息设置公开页面的 SEO 元数据。 */
 export function usePublicSeo(options: PublicSeoOptions) {
   const config = useRuntimeConfig()
   const requestUrl = useRequestURL()

@@ -24,6 +24,7 @@ const BASE_TO_PREFIX: Readonly<Record<number, string>> = {
   16: '0x',
 }
 
+/** 校验进制数值是否处于支持范围内。 */
 function validateBase(value: number, label: string): ToolResult<void> {
   if (!Number.isInteger(value) || value < MIN_BASE || value > MAX_BASE) {
     return failure('out-of-range', `${label}必须是 ${MIN_BASE}–${MAX_BASE} 之间的整数。`)
@@ -32,10 +33,12 @@ function validateBase(value: number, label: string): ToolResult<void> {
   return success(undefined)
 }
 
+/** 将进制字符转换为对应的数值。 */
 function getDigitValue(character: string): number {
   return DIGITS.indexOf(character.toUpperCase())
 }
 
+/** 按照指定源进制解析整数文本。 */
 function parseInteger(value: string, fromBase: number): ToolResult<bigint> {
   let input = value
   let sign = 1n
@@ -82,6 +85,7 @@ function parseInteger(value: string, fromBase: number): ToolResult<bigint> {
   return success(sign * result)
 }
 
+/** 将大整数格式化为目标进制文本并应用输出选项。 */
 function formatInteger(value: bigint, toBase: number, uppercase: boolean, addPrefix: boolean): string {
   const isNegative = value < 0n
   let absolute = isNegative ? -value : value
@@ -106,6 +110,7 @@ function formatInteger(value: bigint, toBase: number, uppercase: boolean, addPre
   return `${isNegative ? '-' : ''}${uppercase ? prefix.toUpperCase() : prefix}${digits}`
 }
 
+/** 执行源进制到目标进制的整数转换。 */
 export function convertBase(options: BaseConversionOptions): ToolResult<string> {
   const fromBaseResult = validateBase(options.fromBase, '源进制')
 

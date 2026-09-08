@@ -1,9 +1,11 @@
 import type { ToolDefinition } from '../types/tool'
 
+/** 规范化搜索文本以便进行无大小写匹配。 */
 export function normalizeSearchText(value: string): string {
   return value.trim().replace(/\s+/g, ' ').toLowerCase()
 }
 
+/** 计算工具与搜索关键词的匹配优先级。 */
 function getMatchRank(tool: ToolDefinition, query: string): number | undefined {
   const title = normalizeSearchText(tool.title)
   const description = normalizeSearchText(tool.description)
@@ -28,6 +30,7 @@ function getMatchRank(tool: ToolDefinition, query: string): number | undefined {
   return undefined
 }
 
+/** 在公开工具集合中执行关键词搜索。 */
 export function searchPublicTools(
   query: string,
   tools: readonly ToolDefinition[],

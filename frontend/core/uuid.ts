@@ -11,6 +11,7 @@ export interface SecureRandomSource {
 export const UUID_MIN_COUNT = 1
 export const UUID_MAX_COUNT = 100
 
+/** 将随机字节格式化为 UUID v4 文本。 */
 function formatUuidBytes(bytes: Uint8Array): string {
   const hex = Array.from(bytes, (value) => value.toString(16).padStart(2, '0')).join('')
   return [
@@ -22,6 +23,7 @@ function formatUuidBytes(bytes: Uint8Array): string {
   ].join('-')
 }
 
+/** 使用安全随机源生成单个 UUID。 */
 function generateUuid(source: SecureRandomSource): ToolResult<string> {
   try {
     if (source.randomUUID) {
@@ -38,6 +40,7 @@ function generateUuid(source: SecureRandomSource): ToolResult<string> {
   }
 }
 
+/** 按数量生成 UUID 列表。 */
 export function generateUuidList(
   count: number,
   source: SecureRandomSource,
@@ -61,6 +64,7 @@ export function generateUuidList(
   return success(result)
 }
 
+/** 按配置转换 UUID 文本的大小写。 */
 export function formatUuidCase(value: string, uppercase: boolean): string {
   return uppercase ? value.toUpperCase() : value.toLowerCase()
 }

@@ -56,6 +56,7 @@ export const TOOL_REGISTRY = [
   },
   {
     ...localWebTool,
+    status: 'enabled',
     id: 'date-time-calculator',
     slug: 'date-time-calculator',
     title: '日期时间计算器',
@@ -85,6 +86,7 @@ export const TOOL_REGISTRY = [
   },
   {
     ...localWebTool,
+    status: 'enabled',
     id: 'unit-converter',
     slug: 'unit-converter',
     title: '常用单位换算',
@@ -94,6 +96,7 @@ export const TOOL_REGISTRY = [
   },
   {
     ...localWebTool,
+    status: 'enabled',
     id: 'simplified-traditional',
     slug: 'simplified-traditional',
     title: '简繁体转换',
@@ -103,6 +106,7 @@ export const TOOL_REGISTRY = [
   },
   {
     ...localWebTool,
+    status: 'enabled',
     id: 'number-to-chinese',
     slug: 'number-to-chinese',
     title: '数字与中文大写转换',
@@ -116,9 +120,19 @@ export const TOOL_REGISTRY = [
     id: 'json-workbench',
     slug: 'json-workbench',
     title: 'JSON 工作台',
-    description: '在浏览器本地格式化标准 JSON，支持 2 个空格、4 个空格和 Tab 缩进。',
+    description: '在浏览器本地格式化、压缩、扁平化和反扁平化标准 JSON，支持多种缩进格式。',
     category: 'developer-text',
-    keywords: ['JSON', 'JSON 格式化', 'json formatter'],
+    keywords: [
+      'JSON',
+      'JSON 格式化',
+      'JSON 压缩',
+      'JSON 扁平化',
+      'JSON 反扁平化',
+      'json formatter',
+      'json minifier',
+      'json flatten',
+      'json unflatten',
+    ],
   },
   {
     ...localWebTool,

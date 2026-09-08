@@ -10,6 +10,7 @@ import type { SecureRandomSource } from '../../core/uuid'
 
 type PasswordRandomSource = SecureRandomSource
 
+/** 创建测试使用的可控随机数源。 */
 function createRandomSource(): PasswordRandomSource {
   return {
     getRandomValues: ((array: Uint32Array) => {

@@ -14,14 +14,17 @@ export interface TimestampConversion {
 
 const MAX_DATE_MILLISECONDS = 8_640_000_000_000_000
 
+/** 将毫秒时间戳格式化为稳定的十进制文本。 */
 function formatMilliseconds(value: number): string {
   return String(Object.is(value, -0) ? 0 : value)
 }
 
+/** 将数值转换为指定宽度的零填充文本。 */
 function pad(value: number, width = 2): string {
   return String(value).padStart(width, '0')
 }
 
+/** 将日期格式化为本地日期时间输入控件值。 */
 function formatLocalInputValue(date: Date): string {
   return [
     `${pad(date.getFullYear(), 4)}-${pad(date.getMonth() + 1)}-${pad(date.getDate())}`,
@@ -29,6 +32,7 @@ function formatLocalInputValue(date: Date): string {
   ].join('T')
 }
 
+/** 将日期格式化为本地可读日期时间文本。 */
 function formatLocalDisplayValue(date: Date): string {
   const formatter = new Intl.DateTimeFormat('zh-CN', {
     year: 'numeric',
@@ -46,6 +50,7 @@ function formatLocalDisplayValue(date: Date): string {
   return `${parts.year}-${parts.month}-${parts.day} ${parts.hour}:${parts.minute}:${parts.second}.${pad(date.getMilliseconds(), 3)}`
 }
 
+/** 根据日期时间字段创建并校验日期对象。 */
 function createDateFromParts(
   year: number,
   month: number,
@@ -73,6 +78,7 @@ function createDateFromParts(
   return date
 }
 
+/** 按本地时间或 UTC 规则解析无时区 ISO 文本。 */
 function parseIsoWithoutTimezone(value: string, mode: TimezoneMode): Date | null {
   const match = /^(\d{4})-(\d{2})-(\d{2})(?:(?:T|\s)(\d{2}):(\d{2})(?::(\d{2})(?:\.(\d{1,9}))?)?)?$/u.exec(value)
 
@@ -124,6 +130,7 @@ function parseIsoWithoutTimezone(value: string, mode: TimezoneMode): Date | null
   return matchesCalendar ? date : null
 }
 
+/** 解析 ISO 8601 文本并校验日期范围。 */
 function parseIsoInput(value: string, mode: TimezoneMode): ToolResult<Date> {
   const input = value.trim()
 
@@ -146,6 +153,7 @@ function parseIsoInput(value: string, mode: TimezoneMode): ToolResult<Date> {
   return success(date)
 }
 
+/** 封装时间戳转换结果和时区说明。 */
 function createConversion(date: Date, notice?: string): TimestampConversion {
   const milliseconds = date.getTime()
   const seconds = Math.trunc(milliseconds / 1000)
@@ -160,6 +168,7 @@ function createConversion(date: Date, notice?: string): TimestampConversion {
   }
 }
 
+/** 将秒或毫秒时间戳转换为日期时间结果。 */
 export function convertTimestamp(
   value: string,
   unit: TimestampUnit,
@@ -198,6 +207,7 @@ export function convertTimestamp(
   ))
 }
 
+/** 将 ISO 8601 日期时间转换为秒或毫秒时间戳。 */
 export function convertIsoToTimestamp(
   value: string,
   mode: TimezoneMode,
@@ -216,6 +226,7 @@ export function convertIsoToTimestamp(
   ))
 }
 
+/** 生成当前时间对应的日期时间输入值。 */
 export function getCurrentTimeInput(mode: TimezoneMode, now = new Date()): string {
   return mode === 'utc' ? now.toISOString() : formatLocalInputValue(now)
 }

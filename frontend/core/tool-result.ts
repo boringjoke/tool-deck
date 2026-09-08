@@ -22,10 +22,12 @@ export type ToolResult<T> =
       error: ToolError
     }
 
+/** 创建表示成功的工具结果对象。 */
 export function success<T>(value: T): ToolResult<T> {
   return { ok: true, value }
 }
 
+/** 创建包含错误码和提示信息的失败结果对象。 */
 export function failure<T = never>(
   code: ToolErrorCode,
   message: string,

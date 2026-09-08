@@ -26,6 +26,7 @@ const activeCategory = computed(() => {
   return TOOL_CATEGORIES.some((category) => category.slug === value) ? value : 'all'
 })
 
+/** 切换当前页面选中的工具分类。 */
 function selectCategory(slug: string) {
   void router.replace({
     path: '/',
@@ -33,6 +34,7 @@ function selectCategory(slug: string) {
   })
 }
 
+/** 清空页面搜索条件并恢复默认展示。 */
 function clearSearch() {
   searchQuery.value = ''
 }

@@ -49,6 +49,7 @@ const status = computed<ToolUiStatus>(() => {
   return encodedResult.value ? 'success' : 'idle'
 })
 
+/** 解析当前输入并更新 URL 工具结果。 */
 function parseInput() {
   rebuiltUrl.value = ''
   sqlResult.value = ''
@@ -97,6 +98,7 @@ watch(input, () => {
   }
 })
 
+/** 执行当前 URL 编码或解码操作。 */
 function runEncoding() {
   const result = mode.value === 'encode'
     ? encodeUrl(input.value, encodingMode.value)
@@ -112,6 +114,7 @@ function runEncoding() {
   encodingError.value = null
 }
 
+/** 向 URL 参数列表追加一个空参数。 */
 function addParameter() {
   parameters.value = [
     ...parameters.value,
@@ -121,17 +124,20 @@ function addParameter() {
   sqlResult.value = ''
 }
 
+/** 从 URL 参数列表移除指定参数。 */
 function removeParameter(index: number) {
   parameters.value = parameters.value.filter((_, parameterIndex) => parameterIndex !== index)
   rebuiltUrl.value = ''
   sqlResult.value = ''
 }
 
+/** 清除依赖当前 URL 参数的派生结果。 */
 function invalidateDerivedResults() {
   rebuiltUrl.value = ''
   sqlResult.value = ''
 }
 
+/** 根据当前解析结果重建 URL。 */
 function rebuildCurrentUrl() {
   if (!parsed.value) {
     return
@@ -148,6 +154,7 @@ function rebuildCurrentUrl() {
   parseError.value = null
 }
 
+/** 根据当前 URL 参数生成 SQL 条件。 */
 function buildSql() {
   const result = generateWhereIn(parameters.value)
 
@@ -161,6 +168,7 @@ function buildSql() {
   parseError.value = null
 }
 
+/** 清空当前工具的文本输入。 */
 function clearInput() {
   input.value = ''
   parsed.value = null

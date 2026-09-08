@@ -33,6 +33,7 @@ export function resolveSiteUrl(configured: unknown, requestOrigin: unknown): str
   return normalizeSiteUrl(configured) || normalizeSiteUrl(requestOrigin)
 }
 
+/** 将站点地址和路径组合为绝对 URL。 */
 export function toAbsoluteSiteUrl(siteUrl: string, pathname: string): string {
   const normalizedSiteUrl = normalizeSiteUrl(siteUrl)
 

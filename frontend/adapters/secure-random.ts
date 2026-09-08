@@ -5,6 +5,7 @@ type CryptoLike = {
   getRandomValues: (array: Uint8Array | Uint32Array) => Uint8Array | Uint32Array
 }
 
+/** 获取浏览器提供的安全随机数源，不可用时返回空值。 */
 export function getSecureRandomSource(): SecureRandomSource | null {
   const cryptoValue = (globalThis as typeof globalThis & { crypto?: CryptoLike }).crypto
 

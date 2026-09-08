@@ -23,6 +23,7 @@ export interface ParsedUrl {
   parameters: UrlQueryParameter[]
 }
 
+/** 解码 URL 查询参数片段并转换解码异常。 */
 function decodeQueryPart(value: string, label: string): ToolResult<string> {
   try {
     return success(decodeURIComponent(value.replace(/\+/gu, ' ')))
@@ -34,6 +35,7 @@ function decodeQueryPart(value: string, label: string): ToolResult<string> {
   }
 }
 
+/** 解析 URL 查询字符串为参数列表。 */
 function parseQueryParameters(search: string): ToolResult<UrlQueryParameter[]> {
   const rawQuery = search.startsWith('?') ? search.slice(1) : search
 
@@ -73,6 +75,7 @@ function parseQueryParameters(search: string): ToolResult<UrlQueryParameter[]> {
   return success(parameters)
 }
 
+/** 解析并校验完整绝对 URL。 */
 export function parseAbsoluteUrl(value: string): ToolResult<ParsedUrl> {
   const input = value.trim()
 
@@ -112,10 +115,12 @@ export function parseAbsoluteUrl(value: string): ToolResult<ParsedUrl> {
   })
 }
 
+/** 按 URL 查询参数规则编码文本片段。 */
 function encodeQueryPart(value: string): string {
   return encodeURIComponent(value)
 }
 
+/** 根据参数列表构建 URL 查询字符串。 */
 export function buildQueryString(parameters: readonly UrlQueryParameter[]): string {
   return parameters
     .map((parameter) => {
@@ -126,6 +131,7 @@ export function buildQueryString(parameters: readonly UrlQueryParameter[]): stri
     .join('&')
 }
 
+/** 根据已解析 URL 和参数重建完整地址。 */
 export function rebuildUrl(
   parsed: Pick<ParsedUrl, 'baseUrl'>,
   parameters: readonly UrlQueryParameter[],
@@ -140,6 +146,7 @@ export function rebuildUrl(
   }
 }
 
+/** 按指定模式编码 URL 文本。 */
 export function encodeUrl(value: string, mode: UrlEncodingMode): ToolResult<string> {
   if (!value.length) {
     return failure('empty-input', '请输入需要编码的内容。')
@@ -152,6 +159,7 @@ export function encodeUrl(value: string, mode: UrlEncodingMode): ToolResult<stri
   }
 }
 
+/** 按指定模式解码 URL 文本。 */
 export function decodeUrl(value: string, mode: UrlEncodingMode): ToolResult<string> {
   if (!value.length) {
     return failure('empty-input', '请输入需要解码的内容。')
@@ -167,14 +175,17 @@ export function decodeUrl(value: string, mode: UrlEncodingMode): ToolResult<stri
   }
 }
 
+/** 转义 SQL 标识符中的特殊字符。 */
 function escapeSqlIdentifier(value: string): string {
   return value.replace(/`/gu, '``')
 }
 
+/** 转义 SQL 字符串字面量中的特殊字符。 */
 function escapeSqlString(value: string): string {
   return value.replace(/'/gu, "''")
 }
 
+/** 根据 URL 参数生成 SQL WHERE IN 条件。 */
 export function generateWhereIn(parameters: readonly UrlQueryParameter[]): ToolResult<string> {
   if (!parameters.length) {
     return failure('empty-input', '当前 URL 没有查询参数，无法生成 WHERE IN。')

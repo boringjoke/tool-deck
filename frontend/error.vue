@@ -12,6 +12,7 @@ useSeoMeta({
   robots: 'noindex, nofollow',
 })
 
+/** 返回站点首页。 */
 function returnHome() {
   clearError({ redirect: '/' })
 }

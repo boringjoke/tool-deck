@@ -14,6 +14,7 @@ export interface RecentStorageItem {
 
 export type RecentStorage = RecentStorageItem[]
 
+/** 获取当前浏览器的本地存储对象。 */
 function getClientStorage(): Storage | null {
   if (typeof window === 'undefined') {
     return null
@@ -26,6 +27,7 @@ function getClientStorage(): Storage | null {
   }
 }
 
+/** 检查当前环境是否可以安全使用本地存储。 */
 export function isLocalStorageAvailable(): boolean {
   const storage = getClientStorage()
 
@@ -43,6 +45,7 @@ export function isLocalStorageAvailable(): boolean {
   }
 }
 
+/** 解析收藏工具存储内容并过滤无效工具标识。 */
 export function parseFavoriteStorage(raw: string | null): FavoriteStorage {
   if (!raw) {
     return []
@@ -61,6 +64,7 @@ export function parseFavoriteStorage(raw: string | null): FavoriteStorage {
   }
 }
 
+/** 判断最近使用记录是否符合存储结构。 */
 function isRecentStorageItem(value: unknown): value is RecentStorageItem {
   if (!value || typeof value !== 'object') {
     return false
@@ -75,6 +79,7 @@ function isRecentStorageItem(value: unknown): value is RecentStorageItem {
   )
 }
 
+/** 解析最近使用存储内容并清理无效记录。 */
 export function parseRecentStorage(raw: string | null): RecentStorage {
   if (!raw) {
     return []
@@ -101,6 +106,7 @@ export function parseRecentStorage(raw: string | null): RecentStorage {
   }
 }
 
+/** 读取收藏工具标识列表。 */
 export function loadFavoriteSlugs(): FavoriteStorage {
   const storage = getClientStorage()
 
@@ -115,6 +121,7 @@ export function loadFavoriteSlugs(): FavoriteStorage {
   }
 }
 
+/** 保存收藏工具标识列表到本地存储。 */
 export function saveFavoriteSlugs(slugs: readonly string[]): boolean {
   const storage = getClientStorage()
 
@@ -130,6 +137,7 @@ export function saveFavoriteSlugs(slugs: readonly string[]): boolean {
   }
 }
 
+/** 读取最近使用工具记录。 */
 export function loadRecentItems(): RecentStorage {
   const storage = getClientStorage()
 
@@ -144,6 +152,7 @@ export function loadRecentItems(): RecentStorage {
   }
 }
 
+/** 保存最近使用工具记录到本地存储。 */
 export function saveRecentItems(items: readonly RecentStorageItem[]): boolean {
   const storage = getClientStorage()
 

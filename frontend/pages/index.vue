@@ -33,10 +33,12 @@ const visibleCategories = computed(() => {
 })
 const collapsedSections = ref<Set<string>>(new Set())
 
+/** 清空页面搜索条件并恢复默认展示。 */
 function clearSearch() {
   void router.replace({ path: '/', query: {} })
 }
 
+/** 切换首页工具分类区域的折叠状态。 */
 function toggleSection(id: string) {
   const next = new Set(collapsedSections.value)
 
@@ -49,10 +51,12 @@ function toggleSection(id: string) {
   collapsedSections.value = next
 }
 
+/** 判断工具分类区域当前是否折叠。 */
 function isSectionCollapsed(id: string): boolean {
   return collapsedSections.value.has(id)
 }
 
+/** 获取指定分类下的公开工具列表。 */
 function toolsForCategory(slug: ToolCategorySlug) {
   return getPublicToolsByCategory(slug)
 }

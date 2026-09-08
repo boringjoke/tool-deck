@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 import { normalizeSearchText, searchPublicTools } from '../../utils/tool-search'
 import type { ToolDefinition } from '../../types/tool'
 
+/** 创建测试使用的工具定义并应用覆盖字段。 */
 function createTool(overrides: Partial<ToolDefinition>): ToolDefinition {
   return {
     id: 'test-tool',

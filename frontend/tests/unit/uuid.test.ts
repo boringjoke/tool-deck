@@ -8,6 +8,7 @@ import {
   type SecureRandomSource,
 } from '../../core/uuid'
 
+/** 创建测试使用的可控随机数源。 */
 function createRandomSource(): SecureRandomSource {
   return {
     getRandomValues: ((array: Uint8Array | Uint32Array) => {

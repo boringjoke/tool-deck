@@ -1,6 +1,7 @@
 import { getPublicRoutePaths } from '~/utils/public-routes'
 import { resolveSiteUrl, toAbsoluteSiteUrl } from '~/utils/site-url'
 
+/** 转义 XML 文本中的特殊字符。 */
 function escapeXml(value: string): string {
   return value
     .replaceAll('&', '&amp;')

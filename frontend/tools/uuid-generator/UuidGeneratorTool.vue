@@ -27,6 +27,7 @@ const hasResettableState = computed(() => Boolean(
   results.value.length || error.value || downloadNotice.value || count.value !== 1 || uppercase.value,
 ))
 
+/** 按当前配置生成工具结果。 */
 function generate() {
   downloadNotice.value = ''
   const source = getSecureRandomSource()
@@ -52,6 +53,7 @@ function generate() {
   error.value = null
 }
 
+/** 将当前工具结果导出为文本文件。 */
 function download() {
   if (!resultText.value) {
     return
@@ -64,6 +66,7 @@ function download() {
   downloadNotice.value = result.message
 }
 
+/** 清空当前工具的输入、结果和错误状态。 */
 function clearAll() {
   count.value = 1
   uppercase.value = false

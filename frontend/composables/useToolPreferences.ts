@@ -13,6 +13,7 @@ import type { ToolDefinition } from '../types/tool'
 const publicTools = getPublicTools()
 const publicToolBySlug = new Map(publicTools.map((tool) => [tool.slug, tool]))
 
+/** 提供收藏、最近使用和本地存储提示等工具偏好能力。 */
 export function useToolPreferences() {
   const favoriteSlugs = ref<string[]>([])
   const recentItems = ref<RecentStorageItem[]>([])
@@ -41,14 +42,17 @@ export function useToolPreferences() {
     }
   })
 
+  /** 显示本地存储不可用时的提示信息。 */
   function showStorageNotice() {
     storageNotice.value = '本地存储不可用，本次操作仍会在当前页面暂时生效。'
   }
 
+  /** 判断指定工具是否已被收藏。 */
   function isFavorite(slug: string): boolean {
     return favoriteSlugs.value.includes(slug)
   }
 
+  /** 切换指定工具的收藏状态。 */
   function toggleFavorite(slug: string) {
     if (!publicToolBySlug.has(slug)) {
       return
@@ -65,6 +69,7 @@ export function useToolPreferences() {
     }
   }
 
+  /** 记录工具最近使用时间并更新本地列表。 */
   function recordRecent(slug: string) {
     if (!publicToolBySlug.has(slug)) {
       return
@@ -85,6 +90,7 @@ export function useToolPreferences() {
     }
   }
 
+  /** 清空最近使用工具记录。 */
   function clearRecent() {
     recentItems.value = []
 
