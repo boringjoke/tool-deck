@@ -1,4 +1,9 @@
 export const TOOL_COMPONENT_LOADERS = {
+  timer: () => import('./timer/TimerTool.vue'),
+  'coin-flip': () => import('./coin-flip/CoinFlipTool.vue'),
+  wheel: () => import('./wheel/WheelTool.vue'),
+  dice: () => import('./dice/DiceTool.vue'),
+  marquee: () => import('./marquee/MarqueeTool.vue'),
   'character-count': () => import('./character-count/CharacterCountTool.vue'),
   'url-tool': () => import('./url-tool/UrlTool.vue'),
   timestamp: () => import('./timestamp/TimestampTool.vue'),

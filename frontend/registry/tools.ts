@@ -11,6 +11,7 @@ const localWebTool = {
 export const TOOL_REGISTRY = [
   {
     ...localWebTool,
+    status: 'enabled',
     id: 'timer',
     slug: 'timer',
     title: '计时器',
@@ -20,6 +21,7 @@ export const TOOL_REGISTRY = [
   },
   {
     ...localWebTool,
+    status: 'enabled',
     id: 'coin-flip',
     slug: 'coin-flip',
     title: '抛硬币',
@@ -29,6 +31,7 @@ export const TOOL_REGISTRY = [
   },
   {
     ...localWebTool,
+    status: 'enabled',
     id: 'wheel',
     slug: 'wheel',
     title: '转盘',
@@ -38,6 +41,7 @@ export const TOOL_REGISTRY = [
   },
   {
     ...localWebTool,
+    status: 'enabled',
     id: 'dice',
     slug: 'dice',
     title: '掷骰子',
@@ -47,12 +51,14 @@ export const TOOL_REGISTRY = [
   },
   {
     ...localWebTool,
+    status: 'enabled',
     id: 'marquee',
     slug: 'marquee',
     title: '手持弹幕',
     description: '设置文字、字号、颜色、背景和速度后全屏滚动展示。',
     category: 'interactive',
     keywords: ['手持弹幕', '弹幕', '滚动文字', '跑马灯', 'marquee'],
+    capabilities: { fullscreen: true },
   },
   {
     ...localWebTool,
