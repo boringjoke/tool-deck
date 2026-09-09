@@ -15,6 +15,9 @@ export const TOOL_COMPONENT_LOADERS = {
   'simplified-traditional': () => import('./simplified-traditional/SimplifiedTraditionalTool.vue'),
   'number-to-chinese': () => import('./number-to-chinese/NumberToChineseTool.vue'),
   'json-workbench': () => import('./json-workbench/JsonWorkbenchTool.vue'),
+  'qr-code': () => import('./qr-code/QrCodeTool.vue'),
+  barcode: () => import('./barcode/BarcodeTool.vue'),
+  'color-tool': () => import('./color-tool/ColorTool.vue'),
 } as const
 
 /** 根据工具 slug 获取异步组件加载器。 */

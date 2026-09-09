@@ -182,6 +182,49 @@ const passwordInfo = {
   ],
 }
 
+const qrCodeInfo = {
+  usage: [
+    '输入需要编码的文本或 URL，选择导出尺寸后点击“生成二维码”。',
+    '生成成功后查看二维码预览，并按需导出 SVG 或 PNG 文件。',
+    '修改输入或尺寸后需要再次点击“生成二维码”；点击“清空”会清除当前输入和结果。',
+  ],
+  notes: [
+    'URL 只作为文本编码，不会检测可访问性；首尾空白只用于空值判断，实际编码会保留原始内容。',
+    '输入上限为 2048 个 UTF-8 字节；二维码版本自动选择，固定使用 M 纠错级别、4 模块静区和黑白配色。',
+    '导出尺寸支持 256、512 和 1024 像素；文件名只包含工具标识和本地日期时间，不包含输入内容。',
+    '所有输入、预览和生成过程仅在当前浏览器页面内处理，不会写入 URL、浏览器存储或上传服务器。',
+  ],
+}
+
+const barcodeInfo = {
+  usage: [
+    '选择 CODE128、CODE39、EAN-13 或 UPC-A 码制，输入内容后点击“生成”。',
+    '生成成功后查看条形码预览，并按需导出 SVG 或 PNG 文件。',
+    '修改输入或码制后需要再次点击“生成”；点击“清空”会清除结果并恢复 CODE128。',
+  ],
+  notes: [
+    'CODE128 支持可见 ASCII 字符，最多 80 个；CODE39 支持大写字母、数字、空格和 - . $ / + %，最多 40 个。',
+    'EAN-13 接受 12 位主体或校验正确的 13 位完整编码；UPC-A 接受 11 位主体或校验正确的 12 位完整编码，主体输入会自动补校验位。',
+    '预览和导出固定使用黑白配色、2px 条宽、100px 条高和 10px 静区；文件名不包含输入内容。',
+    '所有输入、预览和导出过程仅在当前浏览器页面内处理，不会请求网络或写入浏览器存储。',
+  ],
+}
+
+const colorInfo = {
+  usage: [
+    '选择颜色输入格式，输入 HEX、RGB/RGBA 或 HSL/HSLA 颜色值后点击“转换颜色”。',
+    '查看规范化的三类颜色结果；需要时使用原生取色器填入不透明颜色，或复制任一格式结果。',
+    '在基础对比度区域输入前景色和背景色，点击“检查对比度”查看 WCAG AA/AAA 提示。',
+    '点击“清空”会清除两组输入、结果和错误，恢复初始空状态。',
+  ],
+  notes: [
+    'HEX 支持 #RGB、#RGBA、#RRGGBB 和 #RRGGBBAA；RGB 通道为 0–255 整数，HSL 色相为 0–小于 360，透明度为 0–1。',
+    '数值越界不会自动截断或修正；不支持颜色名称、transparent、RGB 百分比、CSS Color 4 空格斜线语法、CMYK、HSV、渐变或变量。',
+    '基础对比度只接受不透明颜色；图片/屏幕取色、EyeDropper API、调色板生成、文件处理和历史记录不在首版范围。',
+    '所有输入、结果和转换过程仅在当前浏览器页面内处理，不会请求网络、写入浏览器存储或上传服务器。',
+  ],
+}
+
 const baseInfo = {
   usage: [
     '设置源进制和目标进制，支持 2–36 的自定义进制。',
@@ -291,6 +334,12 @@ usePublicSeo({
               ? uuidInfo
                 : tool.slug === 'password-generator'
                   ? passwordInfo
+                : tool.slug === 'qr-code'
+                  ? qrCodeInfo
+                : tool.slug === 'barcode'
+                  ? barcodeInfo
+                : tool.slug === 'color-tool'
+                  ? colorInfo
                 : tool.slug === 'simplified-traditional'
                   ? simplifiedTraditionalInfo
                 : tool.slug === 'number-to-chinese'
