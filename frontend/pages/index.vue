@@ -3,6 +3,7 @@ import { computed, ref } from 'vue'
 import { useToolPreferences } from '~/composables/useToolPreferences'
 import { findCategoryBySlug, getPublicTools, getPublicToolsByCategory, TOOL_CATEGORIES } from '~/registry'
 import type { ToolCategorySlug } from '~/types/tool'
+import { mergeQuickTools } from '~/utils/quick-tools'
 import { normalizeSearchText, searchPublicTools } from '~/utils/tool-search'
 
 const route = useRoute()
@@ -24,6 +25,7 @@ const activeCategory = computed(() => {
 })
 const isSearchActive = computed(() => normalizeSearchText(searchQuery.value).length > 0)
 const searchResults = computed(() => searchPublicTools(searchQuery.value, publicTools))
+const quickTools = computed(() => mergeQuickTools(favoriteTools.value, recentTools.value))
 const visibleCategories = computed(() => {
   if (activeCategory.value === 'all') {
     return TOOL_CATEGORIES
@@ -98,33 +100,12 @@ usePublicSeo({
     </template>
 
     <template v-else>
-      <ToolDirectorySection
-        v-if="activeCategory === 'all' && favoriteTools.length"
-        id="favorite-tools"
-        label="已收藏"
-        accent="var(--td-amber)"
-        :tools="favoriteTools"
-        :collapsed="isSectionCollapsed('favorite-tools')"
-        :is-favorite="isFavorite"
-        @toggle="toggleSection('favorite-tools')"
+      <QuickToolSection
+        v-if="activeCategory === 'all' && quickTools.length"
+        :items="quickTools"
+        @clear-recent="clearRecent"
         @toggle-favorite="toggleFavorite"
       />
-
-      <ToolDirectorySection
-        v-if="activeCategory === 'all' && recentTools.length"
-        id="recent-tools"
-        label="最近使用"
-        accent="var(--td-teal)"
-        :tools="recentTools"
-        :collapsed="isSectionCollapsed('recent-tools')"
-        :is-favorite="isFavorite"
-        @toggle="toggleSection('recent-tools')"
-        @toggle-favorite="toggleFavorite"
-      >
-        <template #actions>
-          <button type="button" class="section-action" @click="clearRecent">清空记录</button>
-        </template>
-      </ToolDirectorySection>
 
       <ToolDirectorySection
         v-for="category in visibleCategories"
