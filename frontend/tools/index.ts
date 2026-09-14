@@ -8,6 +8,7 @@ export const TOOL_COMPONENT_LOADERS = {
   'url-tool': () => import('./url-tool/UrlTool.vue'),
   timestamp: () => import('./timestamp/TimestampTool.vue'),
   'date-time-calculator': () => import('./date-time-calculator/DateTimeCalculatorTool.vue'),
+  'world-time': () => import('./world-time/WorldTimeTool.vue'),
   'uuid-generator': () => import('./uuid-generator/UuidGeneratorTool.vue'),
   'password-generator': () => import('./password-generator/PasswordGeneratorTool.vue'),
   'base-converter': () => import('./base-converter/BaseConverterTool.vue'),
@@ -15,9 +16,12 @@ export const TOOL_COMPONENT_LOADERS = {
   'simplified-traditional': () => import('./simplified-traditional/SimplifiedTraditionalTool.vue'),
   'number-to-chinese': () => import('./number-to-chinese/NumberToChineseTool.vue'),
   'json-workbench': () => import('./json-workbench/JsonWorkbenchTool.vue'),
+  'json-to-sql': () => import('./json-to-sql/JsonToSqlTool.vue'),
   'qr-code': () => import('./qr-code/QrCodeTool.vue'),
   barcode: () => import('./barcode/BarcodeTool.vue'),
   'color-tool': () => import('./color-tool/ColorTool.vue'),
+  'morse-code': () => import('./morse-code/MorseCodeTool.vue'),
+  'shield-image': () => import('./shield-image/ShieldImageTool.vue'),
 } as const
 
 /** 根据工具 slug 获取异步组件加载器。 */

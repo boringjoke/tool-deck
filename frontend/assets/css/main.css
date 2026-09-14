@@ -2242,6 +2242,102 @@ a {
   margin-bottom: 12px;
 }
 
+.morse-code-tool > .tool-result-panel {
+  display: flex;
+  min-width: 0;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.morse-code-tool > .tool-result-panel .tool-panel__body {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.morse-code-tool__mode-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.morse-code-tool__mode-tab {
+  min-height: 32px;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface);
+  color: var(--td-text-muted);
+  cursor: pointer;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+}
+
+.morse-code-tool__mode-tab:hover {
+  border-color: var(--td-border-strong);
+  color: var(--td-text);
+}
+
+.morse-code-tool__mode-tab--active {
+  border-color: var(--td-primary);
+  background: var(--td-primary);
+  color: #fff;
+}
+
+.morse-code-tool__mode-tab--active:hover {
+  border-color: var(--td-primary-hover);
+  background: var(--td-primary-hover);
+  color: #fff;
+}
+
+.morse-code-tool__mode-tab:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.morse-code-tool__input {
+  min-height: 220px;
+}
+
+.morse-code-tool__input-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+  color: var(--td-text-muted);
+  font-family: Inter, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.morse-code-tool__input-meta--over {
+  color: var(--td-amber-strong);
+}
+
+.morse-code-tool__output {
+  min-height: 112px;
+  align-content: flex-start;
+  margin-top: 0;
+}
+
+.morse-code-tool__output .output-block__value {
+  display: block;
+  max-height: 420px;
+  overflow: auto;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.morse-code-tool__stale-note {
+  margin-top: -4px;
+  margin-bottom: 12px;
+}
+
 .json-workbench-tool > .tool-result-panel {
   display: flex;
   min-width: 0;
@@ -2395,6 +2491,152 @@ a {
   margin-bottom: 12px;
 }
 
+.json-to-sql-tool > .tool-input-panel,
+.json-to-sql-tool > .tool-result-panel {
+  display: flex;
+  min-width: 0;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.json-to-sql-tool > .tool-input-panel .tool-panel__body,
+.json-to-sql-tool > .tool-result-panel .tool-panel__body {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.json-to-sql-tool__dialect-field {
+  gap: 8px;
+}
+
+.json-to-sql-tool__dialect {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  width: fit-content;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  color: var(--td-text-muted);
+  padding: 0 12px;
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.json-to-sql-tool__editor {
+  position: relative;
+  min-width: 0;
+  min-height: 280px;
+  overflow: hidden;
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+}
+
+.json-to-sql-tool__editor:focus-within {
+  background: var(--td-surface);
+}
+
+.json-to-sql-tool__editor--error {
+  background: var(--td-surface-muted);
+  box-shadow: 0 0 0 1px #efb4ad;
+}
+
+.json-to-sql-tool__editor--error .json-to-sql-tool__input {
+  border-color: #efb4ad;
+}
+
+.json-to-sql-tool__editor-highlights {
+  position: absolute;
+  z-index: 0;
+  inset: 1px;
+  min-width: 0;
+  margin: 0;
+  padding: 10px 12px;
+  color: transparent;
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: 1.65;
+  pointer-events: none;
+  user-select: none;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  tab-size: 8;
+}
+
+.json-to-sql-tool__editor-highlights code {
+  display: block;
+  font: inherit;
+}
+
+.json-to-sql-tool__editor-highlight-line {
+  display: block;
+  min-width: 0;
+  min-height: 1.65em;
+  color: transparent;
+}
+
+.json-to-sql-tool__editor-highlight-line--error {
+  background: #fff4f2;
+  box-shadow: inset 4px 0 0 #efb4ad;
+}
+
+.json-to-sql-tool__input {
+  min-height: 280px;
+  position: relative;
+  z-index: 1;
+  display: block;
+  background: transparent;
+  tab-size: 8;
+}
+
+.json-to-sql-tool__input:focus {
+  background: transparent;
+}
+
+.json-to-sql-tool__input::selection {
+  background: rgb(37 99 235 / 22%);
+  color: transparent;
+}
+
+.json-to-sql-tool__control--error {
+  border-color: #efb4ad;
+  background: #fff4f2;
+}
+
+.json-to-sql-tool__output {
+  min-width: 0;
+  max-height: min(62vh, 560px);
+  overflow: auto;
+  margin: 0;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  color: var(--td-text);
+  padding: 14px;
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 13px;
+  line-height: 1.65;
+  tab-size: 2;
+  white-space: pre;
+}
+
+.json-to-sql-tool__output code {
+  font: inherit;
+}
+
+.json-to-sql-tool__preserved-result {
+  grid-column: 1 / -1;
+}
+
+.json-to-sql-tool__preserved-result .tool-note {
+  margin-top: -4px;
+  margin-bottom: 12px;
+}
+
 @media (max-width: 640px) {
   .tool-panel {
     padding: 14px;
@@ -2447,6 +2689,21 @@ a {
     min-height: 180px;
   }
 
+  .morse-code-tool__mode-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .morse-code-tool__mode-tab {
+    width: 100%;
+    padding: 0 8px;
+  }
+
+  .morse-code-tool__input {
+    min-height: 180px;
+  }
+
   .json-workbench-tool__editor {
     min-height: 220px;
   }
@@ -2464,6 +2721,19 @@ a {
 
   .json-workbench-tool__input {
     min-height: 220px;
+  }
+
+  .json-to-sql-tool__editor {
+    min-height: 220px;
+  }
+
+  .json-to-sql-tool__input {
+    min-height: 220px;
+  }
+
+  .json-to-sql-tool__output {
+    padding: 12px;
+    font-size: 12px;
   }
 
   .tool-field-grid--two,
@@ -3643,6 +3913,146 @@ a {
   .barcode-tool__preview {
     min-height: 158px;
     padding: 14px 10px;
+  }
+}
+
+/* Shield detail alignment: keep the generated badge as the visual anchor of the result panel. */
+.shield-image-tool {
+  gap: 14px 18px;
+}
+
+.shield-image-tool > .tool-input-panel,
+.shield-image-tool > .tool-result-panel,
+.shield-image-tool .tool-panel__body {
+  min-width: 0;
+}
+
+.shield-image-tool .tool-panel__title {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.shield-image-tool > .tool-input-panel .tool-panel__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+
+.shield-image-tool .tool-panel__description {
+  min-width: 0;
+}
+
+.shield-image-tool__text-fields,
+.shield-image-tool__color-fields {
+  align-items: start;
+}
+
+.shield-image-tool__text-fields > .tool-field + .tool-field,
+.shield-image-tool__color-fields > .tool-field + .tool-field {
+  margin-top: 0;
+}
+
+.shield-image-tool__color-fields {
+  margin-top: 14px;
+}
+
+.shield-image-tool__color-input {
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  letter-spacing: 0.02em;
+}
+
+.shield-image-tool__input-meta {
+  display: block;
+  margin-top: 6px;
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.shield-image-tool__fixed-note {
+  margin-top: 14px;
+}
+
+.shield-image-tool__result {
+  display: grid;
+  min-width: 0;
+  gap: 12px;
+}
+
+.shield-image-tool__result-label {
+  margin: 0;
+  color: var(--td-text-muted);
+  font-size: 12px;
+}
+
+.shield-image-tool__preview {
+  display: grid;
+  min-width: 0;
+  min-height: 180px;
+  place-items: center;
+  overflow-x: auto;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  padding: clamp(20px, 5vw, 36px);
+}
+
+.shield-image-tool__preview img {
+  display: block;
+  width: min(100%, 520px);
+  height: auto;
+  filter: drop-shadow(0 8px 12px rgb(28 34 48 / 12%));
+}
+
+.shield-image-tool__meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.shield-image-tool__meta div {
+  min-width: 0;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  padding: 9px 10px;
+}
+
+.shield-image-tool__meta dt {
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+}
+
+.shield-image-tool__meta dd {
+  overflow-wrap: anywhere;
+  margin: 5px 0 0;
+  color: var(--td-text);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.shield-image-tool__stale-note {
+  margin-top: 0;
+  color: var(--td-amber);
+}
+
+@media (max-width: 640px) {
+  .shield-image-tool {
+    gap: 14px;
+  }
+
+  .shield-image-tool__text-fields,
+  .shield-image-tool__color-fields,
+  .shield-image-tool__meta {
+    grid-template-columns: 1fr;
+  }
+
+  .shield-image-tool__preview {
+    min-height: 150px;
+    padding: 18px 12px;
   }
 }
 
@@ -5145,5 +5555,344 @@ a {
 
   .marquee-tool__display-hint {
     max-width: 52%;
+  }
+}
+
+.world-time-tool > .tool-input-panel,
+.world-time-tool > .tool-result-panel,
+.world-time-tool .tool-panel__body {
+  min-width: 0;
+}
+
+.world-time-tool__catalog,
+.world-time-tool__selected {
+  margin-top: 18px;
+}
+
+.world-time-tool__builtin-combobox {
+  position: relative;
+  z-index: 2;
+  margin-top: 8px;
+}
+
+.world-time-tool__section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.world-time-tool__count {
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.world-time-tool__selected-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.world-time-tool__catalog-dropdown {
+  position: absolute;
+  z-index: 3;
+  top: calc(100% + 6px);
+  right: 0;
+  left: 0;
+  display: grid;
+  gap: 6px;
+  max-height: 390px;
+  overflow-y: auto;
+  border: 1px solid var(--td-border-strong);
+  border-radius: var(--td-radius);
+  background: var(--td-surface);
+  box-shadow: 0 8px 18px rgb(28 34 48 / 10%), 0 2px 4px rgb(28 34 48 / 5%);
+  padding: 8px;
+}
+
+.world-time-tool__selected-item {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  padding: 9px 10px 9px 12px;
+}
+
+.world-time-tool__catalog-item {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  color: var(--td-text);
+  cursor: pointer;
+  font: inherit;
+  padding: 9px 10px 9px 12px;
+  text-align: left;
+}
+
+.world-time-tool__catalog-item:hover,
+.world-time-tool__catalog-item[data-highlighted='true']:not(:disabled) {
+  border-color: var(--td-border-strong);
+  background: var(--td-surface);
+}
+
+.world-time-tool__catalog-item:focus-visible {
+  border-color: var(--td-primary);
+  outline: 3px solid rgb(37 99 235 / 12%);
+  outline-offset: 1px;
+}
+
+.world-time-tool__catalog-item:disabled {
+  cursor: default;
+  opacity: 0.58;
+}
+
+.world-time-tool__option-copy {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.world-time-tool__option-title {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.world-time-tool__option-title > span {
+  overflow: hidden;
+  color: var(--td-text-muted);
+  font-family: 'Inter Tight', Inter, 'PingFang SC', sans-serif;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.world-time-tool__option-country {
+  color: var(--td-text-subtle);
+  font-size: 11px;
+}
+
+.world-time-tool__option-copy strong {
+  overflow: hidden;
+  color: var(--td-text);
+  font-size: 13px;
+  font-weight: 650;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.world-time-tool__option-meta {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  color: var(--td-text-subtle);
+  font-size: 10px;
+}
+
+.world-time-tool__option-meta span + span::before {
+  padding-right: 8px;
+  color: var(--td-border-strong);
+  content: '·';
+}
+
+.world-time-tool__option-copy code {
+  overflow-wrap: anywhere;
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+}
+
+.world-time-tool__catalog-status {
+  flex: 0 0 auto;
+  color: var(--td-text-subtle);
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.world-time-tool__custom-field {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.world-time-tool__custom-field > .button {
+  min-height: 38px;
+}
+
+.world-time-tool__empty-note {
+  margin-top: 9px;
+  border-left: 2px solid var(--td-border-strong);
+  padding-left: 10px;
+}
+
+.world-time-tool__snapshots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.world-time-tool__snapshot {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--td-border);
+  border-left: 3px solid var(--td-teal);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  padding: 15px 15px 13px;
+}
+
+.world-time-tool__snapshot-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.world-time-tool__snapshot-source {
+  display: block;
+  color: var(--td-teal);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}
+
+.world-time-tool__snapshot h3 {
+  margin: 4px 0 0;
+  color: var(--td-text);
+  font-family: 'Inter Tight', Inter, 'PingFang SC', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.world-time-tool__snapshot-location {
+  display: block;
+  margin-top: 3px;
+  color: var(--td-text-muted);
+  font-size: 11px;
+}
+
+.world-time-tool__remove-button {
+  display: inline-flex;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: var(--td-text-subtle);
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.world-time-tool__remove-button:hover {
+  border-color: var(--td-border);
+  background: var(--td-surface);
+  color: var(--td-text);
+}
+
+.world-time-tool__remove-button:focus-visible {
+  border-color: var(--td-primary);
+  outline: 3px solid rgb(37 99 235 / 12%);
+  outline-offset: 1px;
+}
+
+.world-time-tool__clock {
+  display: grid;
+  gap: 5px;
+  margin-top: 22px;
+  border-top: 1px solid var(--td-border);
+  border-bottom: 1px solid var(--td-border);
+  padding: 12px 0 13px;
+}
+
+.world-time-tool__date,
+.world-time-tool__weekday {
+  color: var(--td-text-muted);
+  font-size: 12px;
+}
+
+.world-time-tool__date {
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+}
+
+.world-time-tool__time {
+  color: var(--td-primary);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 600;
+  letter-spacing: -0.07em;
+  line-height: 1.05;
+}
+
+.world-time-tool__weekday {
+  color: var(--td-teal);
+  font-weight: 600;
+}
+
+.world-time-tool__meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 12px 0 0;
+}
+
+.world-time-tool__meta div {
+  min-width: 0;
+}
+
+.world-time-tool__meta dt {
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+}
+
+.world-time-tool__meta dd {
+  overflow-wrap: anywhere;
+  margin: 4px 0 0;
+  color: var(--td-text-muted);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 11px;
+}
+
+@media (max-width: 640px) {
+  .world-time-tool__catalog-dropdown {
+    max-height: 330px;
+  }
+
+  .world-time-tool__custom-field {
+    grid-template-columns: 1fr;
+  }
+
+  .world-time-tool__custom-field > .button {
+    width: 100%;
+  }
+
+  .world-time-tool__snapshots {
+    grid-template-columns: 1fr;
+  }
+
+  .world-time-tool__time {
+    font-size: clamp(30px, 13vw, 42px);
   }
 }

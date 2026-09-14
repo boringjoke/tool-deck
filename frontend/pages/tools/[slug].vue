@@ -109,6 +109,20 @@ const characterCountInfo = {
   ],
 }
 
+const morseCodeInfo = {
+  usage: [
+    '选择“文本转摩斯码”或“摩斯码转文本”方向。',
+    '输入英文字母、数字、已支持标点或按规则分隔的摩斯码，点击“开始转换”。',
+    '转换成功后可以复制结果；点击“清空”会恢复默认方向并清除当前状态。',
+  ],
+  notes: [
+    '首版使用国际摩斯码，支持英文字母、数字和已列出的常用标点；中文、Emoji、全角标点和其他未列符号不会自动转码。',
+    '文本转摩斯码时字符代码使用空格分隔、单词使用“/”分隔；摩斯码转文本时非法代码、空代码段和错误分隔会明确提示。',
+    '原始输入最多 10,000 个 Unicode 字符；工具不会自动截断、纠错、模糊匹配或静默丢弃不支持内容。',
+    '所有输入、结果和错误仅在当前浏览器页面内处理，不会请求网络、播放音频或写入 URL、浏览器存储和其他持久化位置。',
+  ],
+}
+
 const urlToolInfo = {
   usage: [
     '选择解析与参数编辑、URL 编码或 URL 解码模式。',
@@ -151,6 +165,22 @@ const dateTimeCalculatorInfo = {
     '年和月按日历规则处理；目标月份没有原日期日号时，会使用该月最后一天。',
     '计算使用当前浏览器本地时区，夏令时边界可能影响实际时间差；不提供跨时区数据库级计算。',
     '所有输入和结果仅在当前浏览器页面内处理，不会上传或写入持久化存储。',
+  ],
+}
+
+const worldTimeInfo = {
+  usage: [
+    '从联合国成员国及观察员国的首都目录中搜索并添加城市，也可以保留北京、东京、新加坡、悉尼、迪拜、伦敦、纽约和洛杉矶等默认城市。',
+    '使用中文名、英文名、国家名或 IANA 时区搜索目录，并从下拉选项中添加城市。',
+    '移除不需要的城市；时间会在浏览器本地每秒更新。',
+    '点击“清空城市”可以清除当前列表和实时结果。',
+  ],
+  notes: [
+    '当前只显示当前实时世界时间，已选城市或时区最多 12 个；不提供固定日期转换、网络校时、闹钟、倒计时或日历能力。',
+    '首都目录包含中文名、英文名、国家名和 IANA 时区，按英文名称首字母排序；当前版本不处理首都变更历史。',
+    '自定义输入必须是浏览器支持的 IANA 时区，例如 Asia/Shanghai、Europe/London 或 America/New_York；不接受城市名称或 UTC 偏移文本。',
+    '夏令时和 UTC 偏移由当前浏览器的 Intl 时区数据处理；系统时间不准确时，工具不会向网络校准。',
+    '城市选择、自定义时区和时间结果只保留在当前页面内存，不会请求网络、写入浏览器存储或上传服务器。',
   ],
 }
 
@@ -207,6 +237,20 @@ const barcodeInfo = {
     'EAN-13 接受 12 位主体或校验正确的 13 位完整编码；UPC-A 接受 11 位主体或校验正确的 12 位完整编码，主体输入会自动补校验位。',
     '预览和导出固定使用黑白配色、2px 条宽、100px 条高和 10px 静区；文件名不包含输入内容。',
     '所有输入、预览和导出过程仅在当前浏览器页面内处理，不会请求网络或写入浏览器存储。',
+  ],
+}
+
+const shieldImageInfo = {
+  usage: [
+    '输入左侧文字、右侧文字和两侧背景色，点击“生成 Shield”。',
+    '生成成功后查看双区域 SVG 预览，可以复制 SVG，或导出 SVG 和 PNG 文件。',
+    '修改文字或颜色后需要再次点击“生成 Shield”；点击“清空”会恢复默认颜色并清除当前结果。',
+  ],
+  notes: [
+    '首版使用固定扁平样式；文字每侧最多 32 个 Unicode 字符，不允许换行和控制字符。',
+    '背景色只支持 #RGB 或 #RRGGBB 格式；PNG 由浏览器本地 Canvas 生成，不提供 JPG、Logo、渐变、批量生成或在线 Shield 服务。',
+    '生成、预览、复制和导出都在当前浏览器本地完成，文件名不包含输入文字或颜色。',
+    '所有输入、结果和错误仅保留在当前页面内存，不会请求网络、写入浏览器存储或上传服务器。',
   ],
 }
 
@@ -297,6 +341,20 @@ const jsonWorkbenchInfo = {
   ],
 }
 
+const jsonToSqlInfo = {
+  usage: [
+    '输入单个 MySQL 表名，并粘贴由扁平对象组成的非空 JSON 数组。',
+    '点击“生成 SQL”将数组转换为一条 MySQL 多行 INSERT 语句。',
+    '生成成功后可以复制 SQL，或下载为本地 .sql 文件；点击“清空”会重置当前状态。',
+  ],
+  notes: [
+    '首版只支持 MySQL 和扁平 JSON 对象数组；所有记录必须包含相同字段，字段值只允许字符串、数字、布尔值和 null。',
+    '嵌套对象、数组、UPDATE、WHERE、多方言、数据库连接和 SQL 执行不在首版范围；生成的 SQL 需要由你在目标环境中自行审查。',
+    '表名和字段名会作为 MySQL 标识符安全转义，字符串中的单引号和反斜线会转义；工具不会执行输入内容。',
+    '输入、结果、表名和错误只保留在当前浏览器页面内；复制和下载均需用户主动操作，不会上传或写入持久化存储。',
+  ],
+}
+
 onMounted(() => {
   recordRecent(tool.slug)
 })
@@ -324,12 +382,16 @@ usePublicSeo({
           ? marqueeInfo
         : tool.slug === 'character-count'
         ? characterCountInfo
+        : tool.slug === 'morse-code'
+          ? morseCodeInfo
         : tool.slug === 'url-tool'
           ? urlToolInfo
           : tool.slug === 'timestamp'
             ? timestampInfo
-            : tool.slug === 'date-time-calculator'
+          : tool.slug === 'date-time-calculator'
               ? dateTimeCalculatorInfo
+            : tool.slug === 'world-time'
+              ? worldTimeInfo
             : tool.slug === 'uuid-generator'
               ? uuidInfo
                 : tool.slug === 'password-generator'
@@ -338,6 +400,8 @@ usePublicSeo({
                   ? qrCodeInfo
                 : tool.slug === 'barcode'
                   ? barcodeInfo
+                : tool.slug === 'shield-image'
+                  ? shieldImageInfo
                 : tool.slug === 'color-tool'
                   ? colorInfo
                 : tool.slug === 'simplified-traditional'
@@ -348,6 +412,8 @@ usePublicSeo({
                   ? unitConverterInfo
                 : tool.slug === 'json-workbench'
                   ? jsonWorkbenchInfo
+                : tool.slug === 'json-to-sql'
+                  ? jsonToSqlInfo
                 : tool.slug === 'base-converter'
                   ? baseInfo
                   : undefined
