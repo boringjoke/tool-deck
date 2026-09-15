@@ -3,6 +3,7 @@ export type ToolErrorCode =
   | 'invalid-input'
   | 'unsupported-input'
   | 'out-of-range'
+  | 'invalid-state'
   | 'crypto-unavailable'
   | 'operation-failed'
 
