@@ -353,6 +353,21 @@ const torrentMagnetInfo = {
     '文件只在当前浏览器内存中处理，不上传、不写入 URL 或浏览器存储；Web Crypto 不可用时不会生成不完整链接。',
   ],
 }
+
+const coordinateConverterInfo = {
+  usage: [
+    '选择源坐标系和目标坐标系，输入一个点的纬度与经度十进制度数。',
+    '点击“开始转换”查看结果；需要时可以交换转换方向，或复制带标签的纬度/经度文本。',
+    '输入或转换方向改变后，点击“开始转换”更新结果；点击“清空”会恢复默认方向并清除当前状态。',
+  ],
+  notes: [
+    '首版支持 WGS84、GCJ-02 和 BD-09 的六个两两转换方向；不支持 CGCS2000、Web Mercator、UTM、批量文件或地图服务。',
+    '涉及 GCJ-02 或 BD-09 时，参考公式适用范围为纬度 3.86–53.55、经度 73.66–135.05；超出范围不会原值返回或生成结果。',
+    '结果默认显示 6 位小数，属于近似转换，不适用于测绘、导航、航空、施工、边界确认、救援或其他高精度、安全关键场景。',
+    '坐标仅在当前浏览器内存中处理，不请求地图或定位服务，不写入 URL、浏览器存储或上传服务器。',
+  ],
+}
+
 const colorInfo = {
 
   usage: [
@@ -516,6 +531,8 @@ usePublicSeo({
                   ? asciiArtInfo
                 : tool.slug === 'torrent-magnet'
                   ? torrentMagnetInfo
+                : tool.slug === 'coordinate-converter'
+                  ? coordinateConverterInfo
                 : tool.slug === 'color-tool'
                   ? colorInfo
                 : tool.slug === 'simplified-traditional'

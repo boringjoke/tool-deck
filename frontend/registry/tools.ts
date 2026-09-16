@@ -330,4 +330,14 @@ export const TOOL_REGISTRY = [
     keywords: ['Torrent', '种子分析', 'Magnet', '磁力链接', 'Bencode', 'btih'],
     capabilities: { file: true },
   },
+  {
+    ...localWebTool,
+    status: 'enabled',
+    id: 'coordinate-converter',
+    slug: 'coordinate-converter',
+    title: '地图坐标系转换',
+    description: '在浏览器本地转换 WGS84、GCJ-02 和 BD-09 单点坐标。',
+    category: 'developer-text',
+    keywords: ['地图坐标', '坐标系转换', 'WGS84', 'GCJ-02', 'BD-09', '经纬度', 'coordinate converter'],
+  },
 ] as const satisfies readonly ToolDefinition[]

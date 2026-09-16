@@ -29,6 +29,7 @@ export const TOOL_COMPONENT_LOADERS = {
   'image-watermark': () => import('./image-watermark/ImageWatermarkTool.vue'),
   'ascii-art': () => import('./ascii-art/AsciiArtTool.vue'),
   'torrent-magnet': () => import('./torrent-magnet/TorrentMagnetTool.vue'),
+  'coordinate-converter': () => import('./coordinate-converter/CoordinateConverterTool.vue'),
 } as const
 
 /** 根据工具 slug 获取异步组件加载器。 */

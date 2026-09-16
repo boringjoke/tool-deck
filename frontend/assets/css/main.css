@@ -2080,6 +2080,85 @@ a {
   margin-bottom: 12px;
 }
 
+.coordinate-converter-tool__swap-row {
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
+
+.coordinate-converter-tool__swap-button {
+  gap: 6px;
+}
+
+.coordinate-converter-tool__swap-icon {
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+}
+
+.coordinate-converter-tool__swap-icon svg {
+  width: 16px;
+  height: 16px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.7;
+}
+
+.coordinate-converter-tool .tool-field-grid--two > .tool-field + .tool-field {
+  margin-top: 0;
+}
+
+.coordinate-converter-tool .tool-input,
+.coordinate-converter-tool .tool-select {
+  width: 100%;
+  height: 38px;
+  min-height: 38px;
+}
+
+.coordinate-converter-tool__coordinates {
+  margin-top: 12px;
+}
+
+.coordinate-converter-tool__output {
+  min-height: 136px;
+  margin-top: 0;
+}
+
+.coordinate-converter-tool__result-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.coordinate-converter-tool__result-item {
+  display: grid;
+  min-width: 0;
+  gap: 6px;
+}
+
+.coordinate-converter-tool__result-item .output-block__value {
+  color: var(--td-primary);
+  font-size: 18px;
+}
+
+.coordinate-converter-tool__stale-note {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.coordinate-converter-tool__preserved-result {
+  grid-column: 1 / -1;
+}
+
+.coordinate-converter-tool__preserved-result .tool-note {
+  margin-top: -4px;
+  margin-bottom: 12px;
+}
+
 .number-to-chinese-tool > .tool-result-panel {
   display: flex;
   min-width: 0;
@@ -2741,6 +2820,10 @@ a {
   .url-detail-grid,
   .stat-grid,
   .stat-grid--compact {
+    grid-template-columns: 1fr;
+  }
+
+  .coordinate-converter-tool__result-grid {
     grid-template-columns: 1fr;
   }
 
