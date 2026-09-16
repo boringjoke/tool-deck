@@ -24,6 +24,11 @@ export const TOOL_COMPONENT_LOADERS = {
   'color-tool': () => import('./color-tool/ColorTool.vue'),
   'morse-code': () => import('./morse-code/MorseCodeTool.vue'),
   'shield-image': () => import('./shield-image/ShieldImageTool.vue'),
+  signature: () => import('./signature/SignatureTool.vue'),
+  'base64-image': () => import('./base64-image/Base64ImageTool.vue'),
+  'image-watermark': () => import('./image-watermark/ImageWatermarkTool.vue'),
+  'ascii-art': () => import('./ascii-art/AsciiArtTool.vue'),
+  'torrent-magnet': () => import('./torrent-magnet/TorrentMagnetTool.vue'),
 } as const
 
 /** 根据工具 slug 获取异步组件加载器。 */

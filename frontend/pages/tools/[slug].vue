@@ -284,7 +284,77 @@ const shieldImageInfo = {
   ],
 }
 
+const signatureInfo = {
+  usage: [
+    '在画布上使用鼠标、触摸或触控笔写下签名；一次按下到抬起算作一笔。',
+    '需要修正时点击“撤销一笔”，也可以直接清空后重新绘制。',
+    '签名准备好后点击“导出透明 PNG”，文件会保存到浏览器默认下载位置。',
+  ],
+  notes: [
+    '画布逻辑尺寸固定为 1200 × 400 px，页面缩放不会改变导出尺寸；笔迹使用固定深色和固定线宽。',
+    '首版只导出透明 PNG，不支持导入签名、文字签名、橡皮擦、压感、SVG 或签名历史。',
+    '空画布不会生成文件；Canvas 或浏览器下载能力失败时会保留当前笔画并显示错误。',
+    '签名和导出过程只保留在当前页面内存，不会写入 URL、浏览器存储、日志或上传服务器。',
+  ],
+}
+
+const base64ImageInfo = {
+  usage: [
+    '选择“图片 → Base64”并上传一张 PNG、JPEG、WebP 或 GIF 图片，点击“转换为 Base64”。',
+    '在结果中分别复制或下载 Data URL、纯 Base64 文本；切换到“Base64 → 图片”可粘贴 Data URL 或纯 Base64 生成预览。',
+    '粘贴纯 Base64 时选择对应图片格式；Data URL 会自动读取 MIME 类型，生成成功后可以下载原始图片。',
+  ],
+  notes: [
+    '单张原始或解码后图片最大 10 MiB；首版仅支持 PNG、JPEG、WebP 和 GIF，不支持 SVG、批量处理、远程 URL、压缩、裁剪或格式转换。',
+    'Base64 会忽略普通空白并校验标准字母表、长度和填充；会同时检查 MIME 与图片文件签名，不匹配或无法识别时不会预览或下载。',
+    '预览由原始图片字节生成，不通过 Canvas 重编码；文本文件名为 base64-image-data-url-YYYYMMDD.txt 或 base64-image-raw-YYYYMMDD.txt，图片文件名为 base64-image-YYYYMMDD.扩展名。',
+    '输入、预览、对象 URL 和结果只保留在当前页面内存；切换模式、清空、刷新或离开页面后不恢复，也不会上传或写入浏览器存储。',
+  ],
+}
+
+const imageWatermarkInfo = {
+  usage: [
+    '选择一张 PNG、JPEG 或 WebP 图片，输入水印文字并选择位置、字号、颜色和透明度。',
+    '点击“生成水印”查看原图与结果对照；点击任一预览可放大查看细节，确认结果后下载跟随输入格式的图片文件。',
+    '参数修改后需要重新生成；失败时会保留并标记上一次成功生成的结果。',
+  ],
+  notes: [
+    '首版只支持单条文本水印，不支持 GIF、Logo/图片水印、多水印、平铺、批量处理、裁剪、缩放或格式转换。',
+    '单张文件最大 10 MiB，解码后最多 20 MP，最长边最多 8,192 px；透明度范围为 10%–100%。',
+    '输出保持原像素尺寸；PNG 无损导出，JPEG 使用固定质量 0.92，WebP 使用固定质量 0.90；Canvas 导出不保留 EXIF、ICC 等原文件元数据。',
+    '文件名为 watermarked-image-YYYYMMDD.扩展名；输入、预览、对象 URL 和结果只保留在当前页面内存，不会上传或写入浏览器存储。',
+  ],
+}
+
+const asciiArtInfo = {
+  usage: [
+    '选择一张 PNG、JPEG 或 WebP 图片，设置输出列数后点击“生成 ASCII 画”。',
+    '生成成功后查看等宽字符预览，可以复制完整文本或下载 UTF-8 TXT 文件。',
+    '更换图片或列数后需要重新生成；处理失败时会保留并标记上一次成功生成的结果。',
+  ],
+  notes: [
+    '首版使用固定 10 档 ASCII 字符集和相对亮度映射，透明像素按白色背景处理；不支持 GIF、彩色输出、图片导出或批量处理。',
+    '单张文件最大 10 MiB，解码后最多 20 MP，最长边最多 8,192 px；输出列数为 40、80、120、160 四档，默认 80 列。',
+    '结果按固定字符网格生成，最多 240 行或 32,000 个字符单元；首版不启用 Worker，遇到超大输出会提示降低列数。',
+    '图片读取、字符转换、复制和下载都在当前浏览器本地完成；输入、结果和错误不会上传或写入浏览器存储。',
+  ],
+}
+
+const torrentMagnetInfo = {
+  usage: [
+    '选择一个本地 .torrent 文件，点击“分析并生成 Magnet”；选择文件后不会自动读取。',
+    '分析成功后查看 Torrent 名称、文件摘要、Piece 信息、Tracker、v1 info-hash 和只读 Magnet 链接。',
+    '按需复制 Magnet 或下载 UTF-8 TXT；更换文件后需要重新分析，点击“清空”会移除当前结果。',
+  ],
+  notes: [
+    '首版仅支持经典 v1 Torrent；v2 或混合 Torrent 会明确提示暂不支持，不生成 Magnet。',
+    '文件最大 10 MiB，严格校验 Bencode 字典排序、重复键、整数和尾随字节；多文件最多展示前 2,000 项，统计仍按完整元数据计算。',
+    'Magnet 只生成 xt、可选 dn 和按原顺序去重的 tr；v1 info-hash 对原始 info 字典字节计算，不请求 Tracker、DHT 或其他网络资源。',
+    '文件只在当前浏览器内存中处理，不上传、不写入 URL 或浏览器存储；Web Crypto 不可用时不会生成不完整链接。',
+  ],
+}
 const colorInfo = {
+
   usage: [
     '选择颜色输入格式，输入 HEX、RGB/RGBA 或 HSL/HSLA 颜色值后点击“转换颜色”。',
     '查看规范化的三类颜色结果；需要时使用原生取色器填入不透明颜色，或复制任一格式结果。',
@@ -436,6 +506,16 @@ usePublicSeo({
                   ? barcodeInfo
                 : tool.slug === 'shield-image'
                   ? shieldImageInfo
+                : tool.slug === 'signature'
+                  ? signatureInfo
+                : tool.slug === 'base64-image'
+                  ? base64ImageInfo
+                : tool.slug === 'image-watermark'
+                  ? imageWatermarkInfo
+                : tool.slug === 'ascii-art'
+                  ? asciiArtInfo
+                : tool.slug === 'torrent-magnet'
+                  ? torrentMagnetInfo
                 : tool.slug === 'color-tool'
                   ? colorInfo
                 : tool.slug === 'simplified-traditional'
