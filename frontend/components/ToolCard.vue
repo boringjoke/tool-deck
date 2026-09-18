@@ -17,6 +17,7 @@ const categoryGlyph = computed(() => {
     'date-conversion': '↔',
     'content-generation': '✦',
     interactive: '◌',
+    knowledge: '▦',
   }
 
   return glyphs[props.tool.category] ?? '•'

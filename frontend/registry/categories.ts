@@ -25,4 +25,10 @@ export const TOOL_CATEGORIES = [
     description: '计时、随机决策和适合现场使用的轻量互动工具。',
     order: 4,
   },
+  {
+    slug: 'knowledge',
+    title: '知识查询',
+    description: '查询稳定、可追溯的参考数据和基础知识。',
+    order: 5,
+  },
 ] as const satisfies readonly ToolCategory[]

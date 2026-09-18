@@ -9,6 +9,7 @@ export type ToolCategorySlug =
   | 'date-conversion'
   | 'developer-text'
   | 'content-generation'
+  | 'knowledge'
 
 export interface ToolCapabilities {
   canvas?: boolean

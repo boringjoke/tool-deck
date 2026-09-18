@@ -119,7 +119,9 @@ usePublicSeo({
               ? '#0369a1'
               : category.slug === 'content-generation'
                 ? 'var(--td-teal)'
-                : '#7048cc'
+              : category.slug === 'knowledge'
+                  ? '#a35c00'
+                  : '#7048cc'
         "
         :tools="toolsForCategory(category.slug)"
         :collapsed="isSectionCollapsed(category.slug)"

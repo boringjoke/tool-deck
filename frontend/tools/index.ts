@@ -30,6 +30,11 @@ export const TOOL_COMPONENT_LOADERS = {
   'ascii-art': () => import('./ascii-art/AsciiArtTool.vue'),
   'torrent-magnet': () => import('./torrent-magnet/TorrentMagnetTool.vue'),
   'coordinate-converter': () => import('./coordinate-converter/CoordinateConverterTool.vue'),
+  'paper-size': () => import('./paper-size/PaperSizeTool.vue'),
+  'world-capitals': () => import('./world-capitals/WorldCapitalsTool.vue'),
+  'blood-type-inheritance': () => import('./blood-type-inheritance/BloodTypeInheritanceTool.vue'),
+  'periodic-table': () => import('./periodic-table/PeriodicTableTool.vue'),
+  'historical-dynasties': () => import('./historical-dynasties/HistoricalDynastiesTool.vue'),
 } as const
 
 /** 根据工具 slug 获取异步组件加载器。 */

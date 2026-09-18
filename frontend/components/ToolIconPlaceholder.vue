@@ -10,6 +10,7 @@ const categoryGlyphs: Record<ToolCategorySlug, string> = {
   'date-conversion': '↔',
   'content-generation': '✦',
   interactive: '◌',
+  knowledge: '▦',
 }
 </script>
 

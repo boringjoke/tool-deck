@@ -1,5 +1,14 @@
 # 第三方依赖许可说明
 
+## flag-icons 7.5.0 静态资源
+
+本项目的「各国首都列表」使用 `flag-icons@7.5.0` 提供的 4:3 SVG 国旗资源；仅复制当前已确认的 195 个 ISO 3166-1 alpha-2 代码到 `public/flags/`，不将完整 npm 包或运行时外链带入前端。
+
+- 项目仓库：https://github.com/lipis/flag-icons
+- npm 包：https://www.npmjs.com/package/flag-icons
+
+该资源集按 MIT 许可发布。项目保留资源来源和许可说明；旗帜只作为国家名称的辅助视觉，不改变首都目录的数据范围或政治语义。
+
 ## opencc-js 1.4.2
 
 本项目的「中文简体繁体转换」工具使用 `opencc-js@1.4.2`，来源于：
