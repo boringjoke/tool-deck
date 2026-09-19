@@ -157,10 +157,6 @@
   white-space: pre-wrap;
 }
 
-.prompter-tool__stage--mirror .prompter-tool__track p {
-  /* The inline transform mirrors the entire text track while the guide stays readable. */
-}
-
 .prompter-tool__stage-chrome {
   position: absolute;
   z-index: 3;

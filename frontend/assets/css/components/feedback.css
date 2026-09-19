@@ -1,12 +1,8 @@
 .favorite-button {
   flex: 0 0 auto;
   border: 1px solid var(--td-border);
-  border-radius: 4px;
-  background: var(--td-surface-muted);
   color: var(--td-text-subtle);
   cursor: pointer;
-  padding: 2px 6px;
-  font-size: 16px;
   line-height: 1;
   transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
 }

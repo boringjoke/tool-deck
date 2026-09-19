@@ -160,7 +160,6 @@
 .quick-tools__header,
 .quick-tools__toolbar {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   gap: 16px;
 }
@@ -679,8 +678,6 @@
 
 .tool-card__privacy {
   color: var(--td-teal);
-  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
-  font-size: 10px;
 }
 
 .tool-card__open {

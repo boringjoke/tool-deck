@@ -130,13 +130,6 @@
   text-align: center;
 }
 
-.timer-tool__accessible-state {
-  margin: 12px 0 0;
-  color: var(--td-text-subtle);
-  font-size: 12px;
-  text-align: center;
-}
-
 @media (max-width: 640px) {
   .timer-tool {
     gap: 14px;
