@@ -1,0 +1,127 @@
+/* Figma Make timestamp-detail alignment: explicit direction and approachable date input. */
+.timestamp-tool {
+  gap: 14px 18px;
+}
+
+.timestamp-tool__mode-tabs {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.timestamp-tool__mode-tab {
+  min-height: 32px;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface);
+  color: var(--td-text-muted);
+  cursor: pointer;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+}
+
+.timestamp-tool__mode-tab:hover {
+  border-color: var(--td-border-strong);
+  color: var(--td-text);
+}
+
+.timestamp-tool__mode-tab--active {
+  border-color: var(--td-primary);
+  background: var(--td-primary);
+  color: #fff;
+}
+
+.timestamp-tool__mode-tab--active:hover {
+  border-color: var(--td-primary-hover);
+  background: var(--td-primary-hover);
+  color: #fff;
+}
+
+.timestamp-tool__top-options {
+  align-items: end;
+}
+
+.timestamp-tool__shortcut-field,
+.timestamp-tool__input-mode-field {
+  display: grid;
+  min-width: 0;
+  gap: 6px;
+}
+
+.timestamp-tool__shortcut {
+  justify-self: start;
+  min-height: 38px;
+}
+
+.timestamp-tool__input-modes {
+  display: flex;
+  min-width: 0;
+  gap: 6px;
+}
+
+.timestamp-tool__input-mode {
+  min-width: 0;
+  min-height: 38px;
+  flex: 1;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  color: var(--td-text-muted);
+  cursor: pointer;
+  padding: 0 10px;
+  font-size: 12px;
+  transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+}
+
+.timestamp-tool__input-mode:hover {
+  border-color: var(--td-border-strong);
+  color: var(--td-text);
+}
+
+.timestamp-tool__input-mode--active {
+  border-color: var(--td-primary);
+  background: #ebf1fe;
+  color: var(--td-primary);
+  font-weight: 600;
+}
+
+.timestamp-tool__date-picker {
+  font-variant-numeric: tabular-nums;
+}
+
+.timestamp-tool__input-note {
+  margin: 7px 0 0;
+  color: var(--td-text-subtle);
+  font-size: 11.5px;
+  line-height: 1.55;
+}
+
+@media (max-width: 640px) {
+  .timestamp-tool {
+    gap: 14px;
+  }
+
+  .timestamp-tool__mode-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .timestamp-tool__mode-tab {
+    width: 100%;
+    text-align: left;
+  }
+
+  .timestamp-tool__input-modes {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .timestamp-tool__input-mode {
+    padding: 0 8px;
+  }
+}
+

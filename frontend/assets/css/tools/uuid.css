@@ -1,0 +1,77 @@
+/* Figma Make UUID-detail alignment: compact configuration beside a readable result list. */
+.uuid-tool {
+  gap: 14px 18px;
+}
+
+.uuid-tool > .tool-input-panel,
+.uuid-tool > .tool-result-panel {
+  min-width: 0;
+}
+
+.uuid-tool .tool-panel__body {
+  min-width: 0;
+}
+
+.uuid-tool__config-grid {
+  align-items: end;
+}
+
+.uuid-tool__count-input {
+  font-variant-numeric: tabular-nums;
+}
+
+.uuid-tool__format-field {
+  display: grid;
+  min-width: 0;
+  gap: 6px;
+}
+
+.uuid-tool__format-option {
+  min-height: 38px;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  padding: 0 10px;
+}
+
+.uuid-tool__format-option:hover {
+  border-color: var(--td-border-strong);
+  background: var(--td-surface);
+}
+
+.uuid-tool .uuid-list {
+  gap: 0;
+  max-height: 360px;
+  overflow: auto;
+  padding-top: 1px;
+  padding-bottom: 1px;
+}
+
+.uuid-tool .uuid-list li {
+  min-width: 0;
+  border-bottom: 1px solid var(--td-border);
+  padding-top: 8px;
+  padding-bottom: 8px;
+}
+
+.uuid-tool .uuid-list li:last-child {
+  border-bottom: 0;
+}
+
+.uuid-tool .uuid-list code {
+  overflow-wrap: anywhere;
+  color: var(--td-text);
+  font-size: 12.5px;
+  letter-spacing: 0.01em;
+}
+
+@media (max-width: 640px) {
+  .uuid-tool {
+    gap: 14px;
+  }
+
+  .uuid-tool .uuid-list {
+    max-height: none;
+  }
+}
+

@@ -1,0 +1,449 @@
+.periodic-table-tool {
+  --periodic-alkali: #e4b84d;
+  --periodic-alkaline: #d78f9b;
+  --periodic-transition: #72a7d5;
+  --periodic-post-transition: #a895d0;
+  --periodic-metalloid: #67ad91;
+  --periodic-nonmetal: #5da9b4;
+  --periodic-halogen: #db8b56;
+  --periodic-noble-gas: #a979c0;
+  --periodic-lanthanide: #c89152;
+  --periodic-actinide: #bf6f75;
+}
+
+.periodic-table-tool__controls {
+  display: grid;
+  grid-template-columns: minmax(190px, 2fr) repeat(3, minmax(130px, 1fr)) auto;
+  align-items: end;
+  gap: 12px;
+}
+
+.periodic-table-tool__query-field {
+  min-width: 0;
+}
+
+.periodic-table-tool__query {
+  min-width: 0;
+}
+
+.periodic-table-tool__option-actions {
+  display: flex;
+  justify-content: flex-end;
+  min-height: 72px;
+  align-items: end;
+}
+
+.periodic-table-tool__results {
+  overflow: hidden;
+}
+
+.periodic-table-tool__legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px 12px;
+  border-bottom: 1px solid var(--td-border);
+  padding: 0 0 14px;
+  color: var(--td-text-muted);
+  font-size: 11px;
+}
+
+.periodic-table-tool__legend-note {
+  flex-basis: 100%;
+  color: var(--td-text-subtle);
+}
+
+.periodic-table-tool__legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  white-space: nowrap;
+}
+
+.periodic-table-tool__legend-swatch {
+  width: 9px;
+  height: 9px;
+  border: 1px solid rgb(28 34 48 / 18%);
+  border-radius: 2px;
+  background: var(--td-border);
+}
+
+.periodic-table-tool__legend-item--alkali-metal .periodic-table-tool__legend-swatch {
+  background: var(--periodic-alkali);
+}
+
+.periodic-table-tool__legend-item--alkaline-earth-metal .periodic-table-tool__legend-swatch {
+  background: var(--periodic-alkaline);
+}
+
+.periodic-table-tool__legend-item--transition-metal .periodic-table-tool__legend-swatch {
+  background: var(--periodic-transition);
+}
+
+.periodic-table-tool__legend-item--post-transition-metal .periodic-table-tool__legend-swatch {
+  background: var(--periodic-post-transition);
+}
+
+.periodic-table-tool__legend-item--metalloid .periodic-table-tool__legend-swatch {
+  background: var(--periodic-metalloid);
+}
+
+.periodic-table-tool__legend-item--nonmetal .periodic-table-tool__legend-swatch {
+  background: var(--periodic-nonmetal);
+}
+
+.periodic-table-tool__legend-item--halogen .periodic-table-tool__legend-swatch {
+  background: var(--periodic-halogen);
+}
+
+.periodic-table-tool__legend-item--noble-gas .periodic-table-tool__legend-swatch {
+  background: var(--periodic-noble-gas);
+}
+
+.periodic-table-tool__legend-item--lanthanide .periodic-table-tool__legend-swatch {
+  background: var(--periodic-lanthanide);
+}
+
+.periodic-table-tool__legend-item--actinide .periodic-table-tool__legend-swatch {
+  background: var(--periodic-actinide);
+}
+
+.periodic-table-tool__table-scroll {
+  overflow-x: auto;
+  margin: 20px -4px 0;
+  padding: 0 4px 10px;
+  overscroll-behavior-inline: contain;
+}
+
+.periodic-table-tool__grid-shell {
+  min-width: 1050px;
+}
+
+.periodic-table-tool__group-labels,
+.periodic-table-tool__main-grid,
+.periodic-table-tool__series-row {
+  display: grid;
+  grid-template-columns: repeat(18, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.periodic-table-tool__group-labels {
+  margin-bottom: 5px;
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 9px;
+  text-align: center;
+}
+
+.periodic-table-tool__main-grid {
+  grid-template-rows: repeat(7, minmax(79px, auto));
+  min-height: 553px;
+}
+
+.periodic-table-tool__element {
+  display: flex;
+  min-width: 0;
+  min-height: 79px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  border: 1px solid rgb(28 34 48 / 20%);
+  border-left: 4px solid var(--td-border-strong);
+  border-radius: 5px;
+  background: var(--td-surface-muted);
+  color: var(--td-text);
+  cursor: pointer;
+  overflow: hidden;
+  padding: 6px 6px 7px;
+  text-align: left;
+  transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+}
+
+.periodic-table-tool__element:hover {
+  border-color: var(--td-text-muted);
+  box-shadow: var(--td-shadow-small);
+  transform: translateY(-1px);
+}
+
+.periodic-table-tool__element:focus-visible {
+  position: relative;
+  z-index: 1;
+}
+
+.periodic-table-tool__element--selected {
+  border-color: var(--td-primary);
+  border-left-color: var(--td-primary);
+  box-shadow: 0 0 0 2px rgb(37 99 235 / 18%), var(--td-shadow-small);
+}
+
+.periodic-table-tool__element--alkali-metal {
+  border-left-color: var(--periodic-alkali);
+  background: #fff8e5;
+}
+
+.periodic-table-tool__element--alkaline-earth-metal {
+  border-left-color: var(--periodic-alkaline);
+  background: #fff0f2;
+}
+
+.periodic-table-tool__element--transition-metal {
+  border-left-color: var(--periodic-transition);
+  background: #edf6ff;
+}
+
+.periodic-table-tool__element--post-transition-metal {
+  border-left-color: var(--periodic-post-transition);
+  background: #f5f0ff;
+}
+
+.periodic-table-tool__element--metalloid {
+  border-left-color: var(--periodic-metalloid);
+  background: #eefaf5;
+}
+
+.periodic-table-tool__element--nonmetal {
+  border-left-color: var(--periodic-nonmetal);
+  background: #eefbfc;
+}
+
+.periodic-table-tool__element--halogen {
+  border-left-color: var(--periodic-halogen);
+  background: #fff3ec;
+}
+
+.periodic-table-tool__element--noble-gas {
+  border-left-color: var(--periodic-noble-gas);
+  background: #f9f0fc;
+}
+
+.periodic-table-tool__element--lanthanide {
+  border-left-color: var(--periodic-lanthanide);
+  background: #fff5e9;
+}
+
+.periodic-table-tool__element--actinide {
+  border-left-color: var(--periodic-actinide);
+  background: #fff0f1;
+}
+
+.periodic-table-tool__atomic-number,
+.periodic-table-tool__weight {
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  line-height: 1.1;
+}
+
+.periodic-table-tool__atomic-number {
+  font-size: 9px;
+}
+
+.periodic-table-tool__symbol {
+  align-self: center;
+  font-family: 'Inter Tight', Inter, 'PingFang SC', sans-serif;
+  font-size: clamp(20px, 2.1vw, 28px);
+  letter-spacing: -0.04em;
+  line-height: 1;
+}
+
+.periodic-table-tool__name {
+  align-self: center;
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--td-text-muted);
+  font-size: 11px;
+  line-height: 1.15;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.periodic-table-tool__weight {
+  max-width: 100%;
+  font-size: 8px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.periodic-table-tool__series-row {
+  align-items: stretch;
+  margin-top: 9px;
+}
+
+.periodic-table-tool__series-label {
+  display: flex;
+  grid-column: 1 / span 3;
+  align-items: center;
+  justify-content: flex-end;
+  color: var(--td-text-muted);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+  padding-right: 8px;
+}
+
+.periodic-table-tool__series-grid {
+  display: grid;
+  grid-column: 4 / -1;
+  grid-template-columns: repeat(15, minmax(0, 1fr));
+  gap: 4px;
+}
+
+.periodic-table-tool__element--series {
+  min-height: 72px;
+}
+
+.periodic-table-tool__detail {
+  margin-top: 20px;
+  border-top: 2px solid var(--td-text);
+  background: var(--td-surface-muted);
+  padding: 18px;
+}
+
+.periodic-table-tool__detail-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.periodic-table-tool__detail-heading {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+}
+
+.periodic-table-tool__detail-number {
+  color: var(--td-primary);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.periodic-table-tool__detail-symbol {
+  margin: 0;
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 11px;
+  line-height: 1;
+}
+
+.periodic-table-tool__detail-title {
+  margin: 4px 0 0;
+  font-family: 'Inter Tight', Inter, 'PingFang SC', sans-serif;
+  font-size: 24px;
+  line-height: 1.1;
+}
+
+.periodic-table-tool__detail-en {
+  margin: 5px 0 0;
+  color: var(--td-text-muted);
+  font-size: 12px;
+}
+
+.periodic-table-tool__detail-clear {
+  flex: 0 0 auto;
+}
+
+.periodic-table-tool__detail-grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0 0;
+}
+
+.periodic-table-tool__detail-grid > div {
+  border-top: 1px solid var(--td-border);
+  padding-top: 8px;
+}
+
+.periodic-table-tool__detail-grid dt {
+  color: var(--td-text-subtle);
+  font-size: 10px;
+}
+
+.periodic-table-tool__detail-grid dd {
+  margin: 4px 0 0;
+  color: var(--td-text);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.periodic-table-tool__selection-empty {
+  margin-top: 16px;
+  border-left-color: var(--td-primary);
+}
+
+.periodic-table-tool__sources {
+  margin-top: 18px;
+  border-top: 1px solid var(--td-border);
+  padding-top: 12px;
+  color: var(--td-text-muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.periodic-table-tool__sources summary {
+  color: var(--td-text);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.periodic-table-tool__sources p {
+  margin: 8px 0 0;
+}
+
+.periodic-table-tool__sources ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.periodic-table-tool__sources a {
+  color: var(--td-primary);
+}
+
+@media (max-width: 900px) {
+  .periodic-table-tool__controls {
+    grid-template-columns: minmax(180px, 1fr) repeat(2, minmax(130px, 1fr));
+  }
+
+  .periodic-table-tool__option-actions {
+    min-height: auto;
+    justify-content: flex-start;
+  }
+
+  .periodic-table-tool__detail-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .periodic-table-tool__controls {
+    grid-template-columns: 1fr;
+  }
+
+  .periodic-table-tool__table-scroll {
+    margin-right: -12px;
+    margin-left: -12px;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .periodic-table-tool__detail {
+    padding: 14px;
+  }
+
+  .periodic-table-tool__detail-header {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .periodic-table-tool__detail-clear {
+    align-self: flex-start;
+  }
+
+  .periodic-table-tool__detail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+

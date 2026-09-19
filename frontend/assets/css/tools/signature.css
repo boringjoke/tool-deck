@@ -1,0 +1,148 @@
+/* Signature detail alignment: the transparent checkerboard keeps the export promise visible while the canvas stays quiet. */
+.signature-tool {
+  gap: 14px 18px;
+}
+
+.signature-tool > .tool-input-panel,
+.signature-tool > .tool-result-panel,
+.signature-tool .tool-panel__body {
+  min-width: 0;
+}
+
+.signature-tool .tool-panel__description {
+  min-width: 0;
+}
+
+.signature-tool__canvas-frame {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border: 1px solid var(--td-border-strong);
+  border-radius: var(--td-radius);
+  background-color: #f7f6f2;
+  background-image:
+    linear-gradient(45deg, #e8e6e0 25%, transparent 25%),
+    linear-gradient(-45deg, #e8e6e0 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, #e8e6e0 75%),
+    linear-gradient(-45deg, transparent 75%, #e8e6e0 75%);
+  background-position: 0 0, 0 9px, 9px -9px, -9px 0;
+  background-size: 18px 18px;
+}
+
+.signature-tool__canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 3 / 1;
+  cursor: crosshair;
+  touch-action: none;
+}
+
+.signature-tool__canvas-hint {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: var(--td-text-subtle);
+  font-size: 13px;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  white-space: nowrap;
+}
+
+.signature-tool__fixed-note {
+  margin-top: 14px;
+}
+
+.signature-tool__result {
+  display: grid;
+  min-width: 0;
+  gap: 14px;
+}
+
+.signature-tool__result-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.signature-tool__result-label,
+.signature-tool__result-summary {
+  margin: 0;
+}
+
+.signature-tool__result-label {
+  color: var(--td-text);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.signature-tool__result-summary {
+  margin-top: 4px;
+  color: var(--td-text-muted);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+  line-height: 1.5;
+}
+
+.signature-tool__format-badge {
+  flex: 0 0 auto;
+  border: 1px solid var(--td-teal-border);
+  border-radius: 999px;
+  background: var(--td-teal-soft);
+  color: var(--td-teal-strong);
+  padding: 4px 8px;
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.signature-tool__meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.signature-tool__meta div {
+  min-width: 0;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  padding: 9px 10px;
+}
+
+.signature-tool__meta dt {
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+}
+
+.signature-tool__meta dd {
+  overflow-wrap: anywhere;
+  margin: 5px 0 0;
+  color: var(--td-text);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 640px) {
+  .signature-tool {
+    gap: 14px;
+  }
+
+  .signature-tool__canvas-hint {
+    font-size: 12px;
+  }
+
+  .signature-tool__result-heading,
+  .signature-tool__meta {
+    grid-template-columns: 1fr;
+  }
+
+  .signature-tool__result-heading {
+    display: grid;
+  }
+}
+

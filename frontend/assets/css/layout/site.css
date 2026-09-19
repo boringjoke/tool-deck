@@ -1,0 +1,113 @@
+.site-shell {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  background: var(--td-bg);
+}
+
+.site-container {
+  width: min(100% - 40px, 1080px);
+  margin: 0 auto;
+}
+
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  border-bottom: 1px solid var(--td-border);
+  background: color-mix(in srgb, var(--td-surface) 94%, transparent);
+  backdrop-filter: blur(10px);
+}
+
+.site-header__inner,
+.site-footer__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  min-height: 54px;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--td-text);
+  font-family: 'Inter Tight', Inter, 'PingFang SC', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+.brand__tag,
+.eyebrow {
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.brand__tag {
+  border: 1px solid var(--td-border);
+  border-radius: 3px;
+  background: var(--td-bg);
+  padding: 1px 5px;
+  text-transform: none;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.site-nav__link {
+  border-radius: 4px;
+  color: var(--td-text-muted);
+  padding: 4px 8px;
+  text-decoration: none;
+  transition: background-color 150ms ease, color 150ms ease;
+}
+
+.site-nav__link:hover {
+  background: var(--td-bg);
+  color: var(--td-text);
+}
+
+.site-main {
+  flex: 1;
+}
+
+.page-section {
+  padding: 72px 0 96px;
+}
+
+.page-section--narrow {
+  max-width: 720px;
+}
+
+.eyebrow {
+  margin-bottom: 12px;
+  color: var(--td-primary);
+}
+
+.page-title {
+  margin: 0;
+  font-family: 'Inter Tight', Inter, 'PingFang SC', sans-serif;
+  font-size: clamp(30px, 5vw, 48px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.05;
+}
+
+.page-lead {
+  max-width: 620px;
+  margin: 18px 0 0;
+  color: var(--td-text-muted);
+  font-size: 16px;
+  line-height: 1.75;
+}
+

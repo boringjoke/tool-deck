@@ -1,0 +1,154 @@
+/* Blood type inheritance reference tool */
+.blood-type-inheritance-tool {
+  gap: 18px;
+}
+
+.blood-type-inheritance-tool__controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(180px, 1fr)) max-content;
+  gap: 12px;
+  align-items: end;
+}
+
+.blood-type-inheritance-tool__controls > .tool-field + .tool-field {
+  margin-top: 0;
+}
+
+.blood-type-inheritance-tool__option-actions {
+  display: flex;
+  min-width: 0;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.blood-type-inheritance-tool__results {
+  min-width: 0;
+}
+
+.blood-type-inheritance-tool__empty {
+  display: flex;
+  min-height: 150px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  color: var(--td-text-muted);
+  text-align: center;
+}
+
+.blood-type-inheritance-tool__empty strong {
+  color: var(--td-text);
+  font-size: 15px;
+}
+
+.blood-type-inheritance-tool__parent-summary {
+  margin: 0;
+  color: var(--td-text-muted);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 12px;
+}
+
+.blood-type-inheritance-tool__type-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.blood-type-inheritance-tool__type {
+  display: grid;
+  min-width: 0;
+  min-height: 92px;
+  align-content: center;
+  gap: 6px;
+  border: 1px solid var(--td-border);
+  border-left: 3px solid var(--td-primary);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  padding: 13px 12px;
+}
+
+.blood-type-inheritance-tool__type--b,
+.blood-type-inheritance-tool__type--ab {
+  border-left-color: var(--td-teal);
+}
+
+.blood-type-inheritance-tool__type--o {
+  border-left-color: var(--td-amber);
+}
+
+.blood-type-inheritance-tool__type-code {
+  color: var(--td-text);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 23px;
+  line-height: 1;
+}
+
+.blood-type-inheritance-tool__type-description {
+  color: var(--td-text-muted);
+  font-size: 11px;
+  line-height: 1.45;
+}
+
+.blood-type-inheritance-tool__warning {
+  margin-top: 18px;
+  border-left: 3px solid var(--td-amber);
+  background: var(--td-amber-soft);
+  padding: 9px 11px;
+  line-height: 1.6;
+}
+
+.blood-type-inheritance-tool__details,
+.blood-type-inheritance-tool__sources {
+  margin-top: 14px;
+  border-top: 1px solid var(--td-border);
+  padding-top: 12px;
+  color: var(--td-text-muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.blood-type-inheritance-tool__details summary,
+.blood-type-inheritance-tool__sources summary {
+  color: var(--td-text);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.blood-type-inheritance-tool__details p,
+.blood-type-inheritance-tool__sources p {
+  margin: 8px 0 0;
+}
+
+.blood-type-inheritance-tool__sources ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.blood-type-inheritance-tool__sources a {
+  color: var(--td-primary);
+}
+
+@media (max-width: 640px) {
+  .blood-type-inheritance-tool__controls {
+    grid-template-columns: 1fr;
+  }
+
+  .blood-type-inheritance-tool__option-actions {
+    justify-content: flex-start;
+  }
+
+  .blood-type-inheritance-tool__type-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .blood-type-inheritance-tool__type {
+    min-height: 82px;
+    padding: 11px 10px;
+  }
+
+  .blood-type-inheritance-tool__type-code {
+    font-size: 21px;
+  }
+}
+

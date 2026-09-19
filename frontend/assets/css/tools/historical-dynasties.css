@@ -1,0 +1,483 @@
+/* Historical dynasties reference tool */
+.historical-dynasties-tool {
+  gap: 12px;
+}
+
+.historical-dynasties-tool > .tool-panel {
+  padding: 15px 16px;
+}
+
+.historical-dynasties-tool > .tool-panel .tool-panel__header {
+  margin-bottom: 10px;
+}
+
+.historical-dynasties-tool__controls {
+  display: grid;
+  grid-template-columns: minmax(240px, 1fr) minmax(150px, 190px) minmax(130px, 160px) max-content;
+  gap: 12px;
+  align-items: end;
+}
+
+.historical-dynasties-tool__controls > .tool-field + .tool-field {
+  margin-top: 0;
+}
+
+.historical-dynasties-tool__query {
+  min-height: 38px;
+}
+
+.historical-dynasties-tool__option-actions {
+  display: flex;
+  min-width: 0;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.historical-dynasties-tool__results {
+  min-width: 0;
+}
+
+.historical-dynasties-tool__sources {
+  margin-bottom: 12px;
+  border-bottom: 1px solid var(--td-border);
+  padding-bottom: 10px;
+  color: var(--td-text-muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.historical-dynasties-tool__sources summary {
+  color: var(--td-text);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.historical-dynasties-tool__sources p {
+  margin: 8px 0 0;
+}
+
+.historical-dynasties-tool__sources ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.historical-dynasties-tool__sources a {
+  color: var(--td-primary);
+}
+
+.historical-dynasties-tool__legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin-bottom: 12px;
+  color: var(--td-text-muted);
+  font-size: 12px;
+}
+
+.historical-dynasties-tool__legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--td-text);
+  font-weight: 600;
+}
+
+.historical-dynasties-tool__legend-item::before {
+  width: 18px;
+  height: 4px;
+  border-radius: 999px;
+  content: '';
+}
+
+.historical-dynasties-tool__legend-item--mainline::before {
+  background: var(--td-primary);
+}
+
+.historical-dynasties-tool__legend-item--parallel::before {
+  background: var(--td-amber);
+}
+
+.historical-dynasties-tool__legend-note {
+  color: var(--td-text-muted);
+}
+
+.historical-dynasties-tool__workspace {
+  display: block;
+}
+
+.historical-dynasties-tool__timeline-wrap {
+  overflow-x: auto;
+  min-width: 0;
+  margin: 0 -2px;
+  padding: 0 2px 4px;
+}
+
+.historical-dynasties-tool__timeline {
+  min-width: 860px;
+}
+
+.historical-dynasties-tool__axis {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 0;
+  border-bottom: 2px solid var(--td-border-strong);
+  color: var(--td-text-muted);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.historical-dynasties-tool__axis span {
+  position: relative;
+  padding: 0 4px 8px;
+  text-align: center;
+}
+
+.historical-dynasties-tool__axis span::after {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  width: 8px;
+  height: 8px;
+  border: 2px solid var(--td-surface);
+  border-radius: 50%;
+  background: var(--td-border-strong);
+  content: '';
+  transform: translateX(-50%);
+}
+
+.historical-dynasties-tool__period {
+  position: relative;
+  margin-left: 10px;
+  border-left: 2px solid var(--td-border);
+  padding: 16px 0 18px 18px;
+}
+
+.historical-dynasties-tool__period::before {
+  position: absolute;
+  top: 20px;
+  left: -6px;
+  width: 10px;
+  height: 10px;
+  border: 2px solid var(--td-surface);
+  border-radius: 50%;
+  background: var(--td-primary);
+  content: '';
+}
+
+.historical-dynasties-tool__period-header,
+.historical-dynasties-tool__details-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.historical-dynasties-tool__period-header {
+  margin-bottom: 10px;
+}
+
+.historical-dynasties-tool__period-header h3,
+.historical-dynasties-tool__details-header h3 {
+  margin: 0;
+  color: var(--td-text);
+  font-size: 16px;
+  line-height: 1.25;
+}
+
+.historical-dynasties-tool__period-header > span {
+  flex: 0 0 auto;
+  color: var(--td-text-muted);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.historical-dynasties-tool__period-eyebrow {
+  margin: 0 0 4px;
+  color: var(--td-text-muted);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.historical-dynasties-tool__lane {
+  display: grid;
+  grid-template-columns: 82px minmax(0, 1fr);
+  gap: 10px;
+  align-items: start;
+  border-top: 1px solid var(--td-border);
+  padding: 10px 0;
+}
+
+.historical-dynasties-tool__lane-label {
+  padding-top: 6px;
+  color: var(--td-text-muted);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+}
+
+.historical-dynasties-tool__lane--mainline .historical-dynasties-tool__lane-label {
+  color: var(--td-primary);
+}
+
+.historical-dynasties-tool__lane--parallel .historical-dynasties-tool__lane-label {
+  color: var(--td-amber-strong);
+}
+
+.historical-dynasties-tool__lane-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(142px, 1fr));
+  gap: 8px;
+}
+
+.historical-dynasties-tool__record {
+  display: flex;
+  min-height: 76px;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 4px;
+  border: 1px solid var(--td-border);
+  border-top: 3px solid var(--td-primary);
+  border-radius: var(--td-radius);
+  background: var(--td-surface);
+  padding: 9px 10px;
+  color: var(--td-text);
+  text-align: left;
+  cursor: pointer;
+  box-shadow: var(--td-shadow-small);
+  transition: border-color 150ms ease, background-color 150ms ease, transform 150ms ease;
+}
+
+.historical-dynasties-tool__lane--parallel .historical-dynasties-tool__record {
+  border-top-color: var(--td-amber);
+  background: color-mix(in srgb, var(--td-amber-soft) 44%, var(--td-surface));
+}
+
+.historical-dynasties-tool__record:hover {
+  border-color: var(--td-primary);
+  transform: translateY(-1px);
+}
+
+.historical-dynasties-tool__lane--parallel .historical-dynasties-tool__record:hover {
+  border-color: var(--td-amber-strong);
+}
+
+.historical-dynasties-tool__record:focus-visible,
+.historical-dynasties-tool__clear-selection:focus-visible {
+  outline: 2px solid var(--td-primary);
+  outline-offset: 3px;
+}
+
+.historical-dynasties-tool__record--selected {
+  border-color: var(--td-primary);
+  background: var(--td-teal-soft);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--td-primary) 18%, transparent), var(--td-shadow-small);
+}
+
+.historical-dynasties-tool__lane--parallel .historical-dynasties-tool__record--selected {
+  border-color: var(--td-amber-strong);
+  background: var(--td-amber-soft);
+}
+
+.historical-dynasties-tool__record-range,
+.historical-dynasties-tool__record-aliases {
+  color: var(--td-text-muted);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.35;
+}
+
+.historical-dynasties-tool__record-range {
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+}
+
+.historical-dynasties-tool__record strong {
+  color: var(--td-text);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.historical-dynasties-tool__record-aliases {
+  overflow: hidden;
+  max-width: 100%;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.historical-dynasties-tool__details {
+  position: fixed;
+  z-index: 20;
+  top: 154px;
+  right: 16px;
+  width: min(340px, calc(100vw - 32px));
+  max-height: calc(100vh - 178px);
+  overflow-y: auto;
+  margin-top: 0;
+  border: 1px solid var(--td-border-strong);
+  border-left: 4px solid var(--td-primary);
+  border-radius: var(--td-radius-large);
+  background: var(--td-surface-muted);
+  padding: 16px;
+  box-shadow: 0 16px 40px rgb(28 34 48 / 20%);
+}
+
+.historical-dynasties-tool__details-header {
+  margin-bottom: 14px;
+}
+
+.historical-dynasties-tool__clear-selection {
+  border: 1px solid var(--td-border-strong);
+  border-radius: var(--td-radius);
+  background: var(--td-surface);
+  color: var(--td-text-muted);
+  padding: 5px 9px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.historical-dynasties-tool__clear-selection:hover {
+  color: var(--td-text);
+}
+
+.historical-dynasties-tool__detail-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0;
+}
+
+.historical-dynasties-tool__detail-grid > div {
+  border-top: 1px solid var(--td-border);
+  padding-top: 8px;
+}
+
+.historical-dynasties-tool__detail-grid dt {
+  color: var(--td-text-subtle);
+  font-size: 11px;
+}
+
+.historical-dynasties-tool__detail-grid dd {
+  margin: 3px 0 0;
+  color: var(--td-text);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.historical-dynasties-tool__detail-aliases,
+.historical-dynasties-tool__detail-note {
+  margin: 12px 0 0;
+  color: var(--td-text-muted);
+  font-size: 13px;
+}
+
+.historical-dynasties-tool__detail-note {
+  border-top: 1px dashed var(--td-border-strong);
+  padding-top: 10px;
+}
+
+.historical-dynasties-tool__empty {
+  display: flex;
+  min-height: 140px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.historical-dynasties-tool__empty strong {
+  color: var(--td-text);
+  font-size: 15px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .historical-dynasties-tool__record {
+    transition: none;
+  }
+}
+
+@media (max-width: 1390px) {
+  .historical-dynasties-tool__workspace--has-selection {
+    padding-bottom: min(70vh, 420px);
+  }
+
+  .historical-dynasties-tool__details {
+    top: auto;
+    right: max(12px, env(safe-area-inset-right));
+    bottom: max(12px, env(safe-area-inset-bottom));
+    left: max(12px, env(safe-area-inset-left));
+    width: auto;
+    max-width: none;
+    max-height: min(70vh, 420px);
+  }
+}
+
+@media (max-width: 860px) {
+  .historical-dynasties-tool__workspace {
+    display: block;
+  }
+
+  .historical-dynasties-tool__details {
+    margin: 0;
+  }
+
+  .historical-dynasties-tool__controls {
+    grid-template-columns: minmax(220px, 1fr) minmax(140px, 170px) max-content;
+  }
+
+  .historical-dynasties-tool__track-field {
+    grid-column: 2;
+  }
+
+  .historical-dynasties-tool__option-actions {
+    grid-column: 3;
+    grid-row: 1;
+  }
+
+  .historical-dynasties-tool__detail-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .historical-dynasties-tool__controls {
+    grid-template-columns: 1fr;
+  }
+
+  .historical-dynasties-tool__track-field,
+  .historical-dynasties-tool__option-actions {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  .historical-dynasties-tool__timeline-wrap {
+    margin-right: -12px;
+    margin-left: -12px;
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .historical-dynasties-tool__timeline {
+    min-width: 760px;
+  }
+
+  .historical-dynasties-tool__details {
+    padding: 14px;
+  }
+
+  .historical-dynasties-tool__details-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .historical-dynasties-tool__clear-selection {
+    align-self: flex-start;
+  }
+}

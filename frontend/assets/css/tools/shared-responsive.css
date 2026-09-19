@@ -1,0 +1,166 @@
+@media (max-width: 640px) {
+  .tool-panel {
+    padding: 14px;
+  }
+
+  .password-tool__configuration {
+    gap: 14px;
+  }
+
+  .password-tool .credential-table-wrap {
+    max-height: none;
+    overflow-x: visible;
+  }
+
+  .base-converter-tool__value {
+    min-height: 120px;
+  }
+
+  .unit-converter-tool__input {
+    min-height: 38px;
+  }
+
+  .number-to-chinese-tool__mode-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .number-to-chinese-tool__mode-tab {
+    width: 100%;
+    padding: 0 8px;
+  }
+
+  .number-to-chinese-tool__input {
+    min-height: 180px;
+  }
+
+  .simplified-traditional-tool__mode-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .simplified-traditional-tool__mode-tab {
+    width: 100%;
+    padding: 0 8px;
+  }
+
+  .simplified-traditional-tool__input {
+    min-height: 180px;
+  }
+
+  .morse-code-tool__mode-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .morse-code-tool__mode-tab {
+    width: 100%;
+    padding: 0 8px;
+  }
+
+  .morse-code-tool__input {
+    min-height: 180px;
+  }
+
+  .json-workbench-tool__editor {
+    min-height: 220px;
+  }
+
+  .json-workbench-tool__mode-tabs {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .json-workbench-tool__mode-tab {
+    width: 100%;
+    padding: 0 8px;
+  }
+
+  .json-workbench-tool__input {
+    min-height: 220px;
+  }
+
+  .json-to-sql-tool__editor {
+    min-height: 220px;
+  }
+
+  .json-to-sql-tool__input {
+    min-height: 220px;
+  }
+
+  .json-to-sql-tool__output {
+    padding: 12px;
+    font-size: 12px;
+  }
+
+  .tool-field-grid--two,
+  .tool-field-grid--three,
+  .url-detail-grid,
+  .stat-grid,
+  .stat-grid--compact {
+    grid-template-columns: 1fr;
+  }
+
+  .coordinate-converter-tool__result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-card--wide {
+    grid-column: auto;
+  }
+
+  .parameter-table-wrap,
+  .credential-table-wrap {
+    overflow-x: visible;
+  }
+
+  .parameter-table,
+  .parameter-table tbody,
+  .parameter-table tr,
+  .credential-table,
+  .credential-table tbody,
+  .credential-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  .parameter-table thead,
+  .credential-table thead {
+    display: none;
+  }
+
+  .parameter-table tr,
+  .credential-table tr {
+    border-bottom: 1px solid var(--td-border);
+    padding: 8px 0;
+  }
+
+  .parameter-table td,
+  .credential-table td {
+    display: block;
+    border: 0;
+    padding: 4px 0;
+  }
+
+  .parameter-table td::before,
+  .credential-table td::before {
+    display: block;
+    margin-bottom: 4px;
+    color: var(--td-text-subtle);
+    font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+    font-size: 10px;
+  }
+
+  .parameter-table td:nth-child(1)::before { content: '序号'; }
+  .parameter-table td:nth-child(2)::before { content: '键'; }
+  .parameter-table td:nth-child(3)::before { content: '值'; }
+  .parameter-table td:nth-child(4)::before { content: '保留等号'; }
+  .parameter-table td:nth-child(5)::before { content: '操作'; }
+.credential-table td:nth-child(1)::before { content: '账号'; }
+  .credential-table td:nth-child(2)::before { content: '密码'; }
+}
+

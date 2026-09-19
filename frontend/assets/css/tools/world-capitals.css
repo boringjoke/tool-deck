@@ -1,0 +1,378 @@
+/* World capitals reference tool */
+.world-capitals-tool {
+  gap: 12px;
+}
+
+.world-capitals-tool > .tool-panel {
+  padding: 15px 16px;
+}
+
+.world-capitals-tool > .tool-panel .tool-panel__header {
+  margin-bottom: 10px;
+}
+
+.world-capitals-tool__controls {
+  display: grid;
+  grid-template-columns: minmax(220px, 300px) minmax(140px, 170px) max-content max-content;
+  gap: 12px;
+  align-items: end;
+}
+
+.world-capitals-tool__controls > .tool-field + .tool-field {
+  margin-top: 0;
+}
+
+.world-capitals-tool__query {
+  min-height: 38px;
+}
+
+.world-capitals-tool__option-group {
+  min-width: 0;
+  margin: 0;
+  border: 0;
+  padding: 0;
+}
+
+.world-capitals-tool__option-group legend {
+  margin-bottom: 6px;
+  color: var(--td-text-muted);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.world-capitals-tool__option-actions {
+  display: flex;
+  min-width: 0;
+  align-items: flex-end;
+  justify-content: flex-start;
+}
+
+.world-capitals-tool__segmented {
+  display: inline-flex;
+  max-width: 100%;
+  border: 1px solid var(--td-border-strong);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  padding: 3px;
+}
+
+.world-capitals-tool__segment {
+  min-height: 30px;
+  border: 0;
+  border-radius: calc(var(--td-radius) - 2px);
+  background: transparent;
+  color: var(--td-text-muted);
+  padding: 0 11px;
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.world-capitals-tool__segment:hover {
+  color: var(--td-text);
+}
+
+.world-capitals-tool__segment:focus-visible {
+  outline: 2px solid var(--td-primary);
+  outline-offset: 2px;
+}
+
+.world-capitals-tool__segment--active {
+  background: var(--td-surface);
+  color: var(--td-text);
+  box-shadow: var(--td-shadow-small);
+  font-weight: 600;
+}
+
+.world-capitals-tool__results {
+  min-width: 0;
+}
+
+.world-capitals-tool__sources {
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--td-border);
+  padding-bottom: 10px;
+  color: var(--td-text-muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.world-capitals-tool__sources summary {
+  color: var(--td-text);
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.world-capitals-tool__sources p {
+  margin: 8px 0 0;
+}
+
+.world-capitals-tool__sources ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.world-capitals-tool__sources a {
+  color: var(--td-primary);
+}
+
+.world-capitals-tool__empty {
+  display: flex;
+  min-height: 120px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  text-align: center;
+}
+
+.world-capitals-tool__empty strong {
+  color: var(--td-text);
+  font-size: 15px;
+}
+
+.world-capitals-tool__table-wrap {
+  overflow-x: auto;
+}
+
+.world-capitals-tool__table {
+  width: 100%;
+  min-width: 760px;
+  table-layout: fixed;
+  border-collapse: collapse;
+  color: var(--td-text-muted);
+  font-size: 12px;
+}
+
+.world-capitals-tool__table th,
+.world-capitals-tool__table td {
+  border-bottom: 1px solid var(--td-border);
+  padding: 9px 10px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.world-capitals-tool__table thead th {
+  color: var(--td-text-subtle);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.world-capitals-tool__table tbody th {
+  color: var(--td-text);
+  font-weight: 600;
+}
+
+.world-capitals-tool__table col:nth-child(1) {
+  width: 24%;
+}
+
+.world-capitals-tool__table col:nth-child(2) {
+  width: 46%;
+}
+
+.world-capitals-tool__table col:nth-child(3) {
+  width: 16%;
+}
+
+.world-capitals-tool__table col:nth-child(4) {
+  width: 14%;
+}
+
+.world-capitals-tool__table tbody tr:last-child th,
+.world-capitals-tool__table tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.world-capitals-tool__name,
+.world-capitals-tool__subname {
+  display: block;
+}
+
+.world-capitals-tool__country {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  gap: 9px;
+}
+
+.world-capitals-tool__flag {
+  display: block;
+  width: 32px;
+  height: 24px;
+  flex: 0 0 auto;
+  border: 1px solid var(--td-border);
+  border-radius: 3px;
+  background: var(--td-surface-muted);
+  object-fit: cover;
+}
+
+.world-capitals-tool__subname {
+  margin-top: 3px;
+  color: var(--td-text-subtle);
+  font-size: 11px;
+  font-weight: 400;
+}
+
+.world-capitals-tool__capital-list {
+  display: grid;
+  gap: 7px;
+}
+
+.world-capitals-tool__capital-entry {
+  min-width: 0;
+}
+
+.world-capitals-tool__capital-heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+}
+
+.world-capitals-tool__capital-name {
+  color: var(--td-text);
+  font-weight: 600;
+}
+
+.world-capitals-tool__capital-en {
+  color: var(--td-text-muted);
+  font-size: 11px;
+}
+
+.world-capitals-tool__role {
+  display: inline-flex;
+  border: 1px solid var(--td-border-strong);
+  border-radius: 999px;
+  color: var(--td-text-subtle);
+  padding: 1px 6px;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.world-capitals-tool__capital-note {
+  display: block;
+  margin-top: 3px;
+  color: var(--td-text-subtle);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.world-capitals-tool__iso {
+  color: var(--td-text);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  white-space: nowrap;
+}
+
+.world-capitals-tool__iso small {
+  display: block;
+  margin-top: 3px;
+  color: var(--td-text-subtle);
+  font-size: 10px;
+}
+
+.world-capitals-tool__cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.world-capitals-tool__card {
+  min-width: 0;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  padding: 12px;
+}
+
+.world-capitals-tool__card-header {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.world-capitals-tool__card-country-copy {
+  min-width: 0;
+}
+
+.world-capitals-tool__eyebrow {
+  margin: 0 0 5px;
+  color: var(--td-text-subtle);
+  font-size: 11px;
+}
+
+.world-capitals-tool__card-title {
+  margin: 0;
+  color: var(--td-text);
+  font-family: 'Inter Tight', Inter, 'PingFang SC', sans-serif;
+  font-size: 18px;
+}
+
+.world-capitals-tool__card-capitals {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+  border-top: 1px solid var(--td-border);
+  padding-top: 10px;
+}
+
+@media (max-width: 860px) {
+  .world-capitals-tool__cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .world-capitals-tool__controls {
+    grid-template-columns: minmax(0, 1fr) minmax(130px, 160px);
+  }
+
+  .world-capitals-tool__option-group,
+  .world-capitals-tool__option-actions {
+    grid-row: 2;
+  }
+
+  .world-capitals-tool__option-actions {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 640px) {
+  .world-capitals-tool__controls {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .world-capitals-tool__query-field,
+  .world-capitals-tool__region-field {
+    grid-column: 1 / -1;
+  }
+
+  .world-capitals-tool__option-group,
+  .world-capitals-tool__option-actions {
+    grid-row: auto;
+  }
+
+  .world-capitals-tool__segmented {
+    display: flex;
+    width: 100%;
+  }
+
+  .world-capitals-tool__segment {
+    flex: 1;
+  }
+
+  .world-capitals-tool__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .world-capitals-tool__card {
+    padding: 12px;
+  }
+
+  .world-capitals-tool__table {
+    min-width: 720px;
+  }
+}
+

@@ -1,0 +1,165 @@
+/* Timer-detail alignment: a quiet instrument panel for the current task. */
+.timer-tool {
+  gap: 14px 18px;
+}
+
+.timer-tool > .tool-input-panel,
+.timer-tool > .tool-result-panel,
+.timer-tool .tool-panel__body,
+.timer-tool__countdown-fields {
+  min-width: 0;
+}
+
+.timer-tool__mode-tabs {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.timer-tool__mode-tab {
+  min-height: 32px;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface);
+  color: var(--td-text-muted);
+  cursor: pointer;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+}
+
+.timer-tool__mode-tab:hover {
+  border-color: var(--td-border-strong);
+  color: var(--td-text);
+}
+
+.timer-tool__mode-tab--active {
+  border-color: var(--td-primary);
+  background: var(--td-primary);
+  color: #fff;
+}
+
+.timer-tool__mode-tab--active:hover {
+  border-color: var(--td-primary-hover);
+  background: var(--td-primary-hover);
+  color: #fff;
+}
+
+.timer-tool__mode-summary {
+  border-left: 3px solid var(--td-primary);
+  background: var(--td-surface-muted);
+  padding: 16px 18px;
+}
+
+.timer-tool__mode-summary-label,
+.timer-tool__display-label {
+  color: var(--td-primary);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.timer-tool__mode-summary p {
+  margin: 8px 0 0;
+  color: var(--td-text-muted);
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.timer-tool__duration-input {
+  font-variant-numeric: tabular-nums;
+}
+
+.timer-tool__display {
+  display: grid;
+  min-height: 238px;
+  align-content: center;
+  justify-items: center;
+  gap: 12px;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius-large);
+  background: linear-gradient(145deg, var(--td-surface-muted), var(--td-surface));
+  padding: 28px 18px;
+  text-align: center;
+}
+
+.timer-tool__display--completed {
+  border-color: var(--td-amber-border);
+  background: var(--td-amber-soft);
+}
+
+.timer-tool__display-value {
+  max-width: 100%;
+  color: var(--td-text);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: clamp(42px, 6vw, 72px);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  letter-spacing: -0.08em;
+  line-height: 1;
+  overflow-wrap: anywhere;
+}
+
+.timer-tool__state-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 14px;
+  border-bottom: 1px solid var(--td-border);
+  color: var(--td-text-muted);
+  padding-bottom: 10px;
+  font-size: 12px;
+}
+
+.timer-tool__state-row strong {
+  color: var(--td-text);
+  font-weight: 600;
+}
+
+.timer-tool__completion {
+  grid-column: 1 / -1;
+  margin: 12px 0 0;
+  color: var(--td-amber);
+  font-size: 13px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.timer-tool__accessible-state {
+  margin: 12px 0 0;
+  color: var(--td-text-subtle);
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .timer-tool {
+    gap: 14px;
+  }
+
+  .timer-tool__mode-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .timer-tool__mode-tab {
+    width: 100%;
+    text-align: left;
+  }
+
+  .timer-tool__display {
+    min-height: 210px;
+    padding-inline: 12px;
+  }
+
+  .timer-tool__display-value {
+    font-size: clamp(36px, 13vw, 56px);
+  }
+}
+

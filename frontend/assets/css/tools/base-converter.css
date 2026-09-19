@@ -1,0 +1,28 @@
+.base-converter-tool > .tool-result-panel {
+  display: flex;
+  min-width: 0;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.base-converter-tool > .tool-result-panel .tool-panel__body {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.base-converter-tool .output-block {
+  min-height: 112px;
+  align-content: center;
+  margin-top: 0;
+}
+
+.base-converter-tool .output-block__value {
+  overflow-wrap: anywhere;
+  word-break: break-all;
+}
+
+.base-converter-tool__value {
+  min-height: 136px;
+}
+

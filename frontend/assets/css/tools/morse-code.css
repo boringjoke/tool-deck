@@ -1,0 +1,96 @@
+.morse-code-tool > .tool-result-panel {
+  display: flex;
+  min-width: 0;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.morse-code-tool > .tool-result-panel .tool-panel__body {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.morse-code-tool__mode-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.morse-code-tool__mode-tab {
+  min-height: 32px;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface);
+  color: var(--td-text-muted);
+  cursor: pointer;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+}
+
+.morse-code-tool__mode-tab:hover {
+  border-color: var(--td-border-strong);
+  color: var(--td-text);
+}
+
+.morse-code-tool__mode-tab--active {
+  border-color: var(--td-primary);
+  background: var(--td-primary);
+  color: #fff;
+}
+
+.morse-code-tool__mode-tab--active:hover {
+  border-color: var(--td-primary-hover);
+  background: var(--td-primary-hover);
+  color: #fff;
+}
+
+.morse-code-tool__mode-tab:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.morse-code-tool__input {
+  min-height: 220px;
+}
+
+.morse-code-tool__input-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 10px;
+  color: var(--td-text-muted);
+  font-family: Inter, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei UI', 'Microsoft YaHei', sans-serif;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.morse-code-tool__input-meta--over {
+  color: var(--td-amber-strong);
+}
+
+.morse-code-tool__output {
+  min-height: 112px;
+  align-content: flex-start;
+  margin-top: 0;
+}
+
+.morse-code-tool__output .output-block__value {
+  display: block;
+  max-height: 420px;
+  overflow: auto;
+  overflow-wrap: anywhere;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.morse-code-tool__stale-note {
+  margin-top: -4px;
+  margin-bottom: 12px;
+}
+

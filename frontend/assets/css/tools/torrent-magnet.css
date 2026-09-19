@@ -1,0 +1,238 @@
+/* Torrent Magnet detail styling: keep binary-derived metadata readable without exposing raw metainfo. */
+.torrent-magnet-tool {
+  gap: 14px 18px;
+}
+
+.torrent-magnet-tool > .tool-input-panel,
+.torrent-magnet-tool > .tool-result-panel,
+.torrent-magnet-tool .tool-panel__body {
+  min-width: 0;
+}
+
+.torrent-magnet-tool__file-input {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  color: var(--td-text);
+  font-size: 12px;
+}
+
+.torrent-magnet-tool__file-input:focus-visible {
+  outline: 3px solid rgb(37 99 235 / 12%);
+  outline-offset: 1px;
+}
+
+.torrent-magnet-tool__file-note,
+.torrent-magnet-tool__muted,
+.torrent-magnet-tool__section-heading span {
+  color: var(--td-text-subtle);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.torrent-magnet-tool__privacy-note {
+  margin-top: -2px;
+}
+
+.torrent-magnet-tool__result {
+  display: grid;
+  min-width: 0;
+  gap: 14px;
+}
+
+.torrent-magnet-tool__result-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.torrent-magnet-tool__result-label,
+.torrent-magnet-tool__result-summary {
+  margin: 0;
+}
+
+.torrent-magnet-tool__result-label {
+  color: var(--td-text);
+  font-size: 13px;
+  font-weight: 650;
+}
+
+.torrent-magnet-tool__result-summary {
+  margin-top: 4px;
+  color: var(--td-text-muted);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.torrent-magnet-tool__format-badge {
+  flex: 0 0 auto;
+  border: 1px solid var(--td-teal-border);
+  border-radius: 999px;
+  background: var(--td-teal-soft);
+  color: var(--td-teal-strong);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+  padding: 5px 8px;
+  white-space: nowrap;
+}
+
+.torrent-magnet-tool__meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.torrent-magnet-tool__meta div {
+  min-width: 0;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  padding: 9px 10px;
+}
+
+.torrent-magnet-tool__meta dt {
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+}
+
+.torrent-magnet-tool__meta dd {
+  overflow-wrap: anywhere;
+  margin: 5px 0 0;
+  color: var(--td-text-muted);
+  font-size: 12px;
+  line-height: 1.45;
+}
+
+.torrent-magnet-tool__hash {
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 11px;
+  letter-spacing: 0.02em;
+}
+
+.torrent-magnet-tool__section {
+  display: grid;
+  min-width: 0;
+  gap: 8px;
+}
+
+.torrent-magnet-tool__section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.torrent-magnet-tool__section-heading h3 {
+  margin: 0;
+  color: var(--td-text);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+.torrent-magnet-tool__tracker-list,
+.torrent-magnet-tool__file-list {
+  display: grid;
+  min-width: 0;
+  gap: 6px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.torrent-magnet-tool__tracker-list li {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  border-left: 2px solid var(--td-teal-border);
+  color: var(--td-text-muted);
+  font-size: 11px;
+  line-height: 1.5;
+  padding-left: 9px;
+}
+
+.torrent-magnet-tool__tracker-list code {
+  overflow-wrap: anywhere;
+  color: inherit;
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+}
+
+.torrent-magnet-tool__file-list {
+  max-height: 280px;
+  overflow: auto;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  padding: 7px;
+}
+
+.torrent-magnet-tool__file-list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 12px;
+  border-bottom: 1px solid var(--td-border);
+  color: var(--td-text-muted);
+  font-size: 11px;
+  line-height: 1.45;
+  padding: 6px 4px;
+}
+
+.torrent-magnet-tool__file-list li:last-child {
+  border-bottom: 0;
+}
+
+.torrent-magnet-tool__file-list li span:first-child {
+  overflow-wrap: anywhere;
+}
+
+.torrent-magnet-tool__file-list li span:last-child {
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  white-space: nowrap;
+}
+
+.torrent-magnet-tool__magnet-field {
+  min-width: 0;
+}
+
+.torrent-magnet-tool__magnet {
+  min-height: 112px;
+  resize: vertical;
+  overflow-wrap: anywhere;
+  word-break: break-all;
+}
+
+.torrent-magnet-tool__encoding-note {
+  border-left: 2px solid var(--td-amber);
+  padding-left: 9px;
+}
+
+.torrent-magnet-tool__stale-note {
+  border-left: 2px solid var(--td-primary);
+  padding-left: 9px;
+}
+
+@media (max-width: 640px) {
+  .torrent-magnet-tool {
+    gap: 14px;
+  }
+
+  .torrent-magnet-tool__result-heading,
+  .torrent-magnet-tool__meta {
+    grid-template-columns: 1fr;
+  }
+
+  .torrent-magnet-tool__result-heading {
+    display: grid;
+    align-items: start;
+  }
+
+  .torrent-magnet-tool__file-list {
+    max-height: 240px;
+  }
+}
+

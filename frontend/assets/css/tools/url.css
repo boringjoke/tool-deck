@@ -1,0 +1,72 @@
+/* Figma Make URL-detail alignment: mode navigation above the two-panel workspace. */
+.url-tool {
+  gap: 14px 18px;
+}
+
+.url-tool__mode-tabs {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.url-tool__mode-tab {
+  min-height: 32px;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface);
+  color: var(--td-text-muted);
+  cursor: pointer;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+}
+
+.url-tool__mode-tab:hover {
+  border-color: var(--td-border-strong);
+  color: var(--td-text);
+}
+
+.url-tool__mode-tab--active {
+  border-color: var(--td-primary);
+  background: var(--td-primary);
+  color: #fff;
+}
+
+.url-tool__mode-tab--active:hover {
+  border-color: var(--td-primary-hover);
+  background: var(--td-primary-hover);
+  color: #fff;
+}
+
+.url-tool > .tool-input-panel,
+.url-tool > .tool-result-panel {
+  min-width: 0;
+}
+
+.url-tool .tool-panel__body {
+  min-width: 0;
+}
+
+.url-tool .parameter-table-wrap {
+  max-width: 100%;
+}
+
+@media (max-width: 640px) {
+  .url-tool {
+    gap: 14px;
+  }
+
+  .url-tool__mode-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .url-tool__mode-tab {
+    width: 100%;
+    text-align: left;
+  }
+}
+

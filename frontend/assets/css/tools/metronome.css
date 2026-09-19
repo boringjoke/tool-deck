@@ -1,0 +1,277 @@
+/* Metronome-detail alignment: a compact instrument panel with a visible beat rail. */
+.metronome-tool {
+  gap: 14px 18px;
+}
+
+.metronome-tool > .tool-input-panel,
+.metronome-tool > .tool-result-panel,
+.metronome-tool .tool-panel__body,
+.metronome-tool__config-grid {
+  min-width: 0;
+}
+
+.metronome-tool__intro {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+  border-left: 3px solid var(--td-amber);
+  padding-left: 12px;
+}
+
+.metronome-tool__intro p {
+  margin: 0;
+  color: var(--td-text-muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.metronome-tool__eyebrow,
+.metronome-tool__display-label {
+  color: var(--td-teal);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.metronome-tool__bpm-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+}
+
+.metronome-tool__number-input {
+  font-variant-numeric: tabular-nums;
+}
+
+.metronome-tool__bpm-unit {
+  min-width: 44px;
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 11px;
+  letter-spacing: 0.06em;
+}
+
+.metronome-tool__range {
+  width: 100%;
+  accent-color: var(--td-teal);
+}
+
+.metronome-tool__display {
+  --metronome-ink: #17202f;
+  --metronome-ink-soft: #24344a;
+  --metronome-white: #f7f9fc;
+  position: relative;
+  display: grid;
+  min-height: 342px;
+  align-content: center;
+  gap: 24px;
+  overflow: hidden;
+  border: 1px solid #2d3c50;
+  border-radius: var(--td-radius-large);
+  background: var(--metronome-ink);
+  color: var(--metronome-white);
+  padding: 28px 24px;
+}
+
+.metronome-tool__display::before,
+.metronome-tool__display::after {
+  position: absolute;
+  width: 110px;
+  height: 110px;
+  border: 1px solid rgba(168, 218, 214, 0.18);
+  content: '';
+  pointer-events: none;
+}
+
+.metronome-tool__display::before {
+  top: 18px;
+  left: 18px;
+  border-right: 0;
+  border-bottom: 0;
+}
+
+.metronome-tool__display::after {
+  right: 18px;
+  bottom: 18px;
+  border-top: 0;
+  border-left: 0;
+}
+
+.metronome-tool__display-head {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.metronome-tool__display-state {
+  color: #f4c96a;
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+  letter-spacing: 0.04em;
+}
+
+.metronome-tool__tempo {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.metronome-tool__tempo-value {
+  color: var(--metronome-white);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: clamp(58px, 8vw, 84px);
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  letter-spacing: -0.08em;
+  line-height: 0.9;
+}
+
+.metronome-tool__tempo-unit {
+  color: #9eb0c5;
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 12px;
+  letter-spacing: 0.08em;
+}
+
+.metronome-tool__beat-rail {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(var(--metronome-beats), minmax(0, 1fr));
+  gap: 8px;
+  width: 100%;
+}
+
+.metronome-tool__beat {
+  display: grid;
+  min-width: 0;
+  aspect-ratio: 1;
+  place-items: center;
+  border: 1px solid #51657e;
+  border-radius: 3px;
+  background: var(--metronome-ink-soft);
+  color: #b7c4d3;
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+  transition: border-color 110ms ease, background-color 110ms ease, color 110ms ease, transform 110ms ease;
+}
+
+.metronome-tool__beat--accent {
+  border-color: #b97010;
+  color: #f4c96a;
+}
+
+.metronome-tool__beat--active {
+  transform: translateY(-3px);
+  border-color: #64c8be;
+  background: var(--td-teal);
+  color: #fff;
+  box-shadow: 0 8px 18px rgba(13, 148, 136, 0.28);
+}
+
+.metronome-tool__beat--accent.metronome-tool__beat--active {
+  border-color: #f4c96a;
+  background: var(--td-amber);
+  box-shadow: 0 8px 18px rgba(185, 112, 16, 0.28);
+}
+
+.metronome-tool__state-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  border-top: 1px solid rgba(158, 176, 197, 0.28);
+  padding-top: 14px;
+}
+
+.metronome-tool__state-grid div {
+  display: grid;
+  gap: 5px;
+}
+
+.metronome-tool__state-grid span {
+  color: #8fa2b8;
+  font-size: 11px;
+}
+
+.metronome-tool__state-grid strong {
+  color: var(--metronome-white);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.metronome-tool__notices {
+  display: grid;
+  gap: 5px;
+  margin-top: 12px;
+  border: 1px solid var(--td-amber-border);
+  border-radius: var(--td-radius);
+  background: var(--td-amber-soft);
+  padding: 10px 12px;
+}
+
+.metronome-tool__notices p,
+.metronome-tool__accessible-status {
+  margin: 0;
+  color: var(--td-text-muted);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.metronome-tool__accessible-status {
+  margin-top: 10px;
+  color: var(--td-text-subtle);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .metronome-tool__beat {
+    transition: none;
+  }
+
+  .metronome-tool__beat--active {
+    transform: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .metronome-tool {
+    gap: 14px;
+  }
+
+  .metronome-tool__display {
+    min-height: 300px;
+    gap: 20px;
+    padding: 24px 16px;
+  }
+
+  .metronome-tool__display::before,
+  .metronome-tool__display::after {
+    width: 72px;
+    height: 72px;
+  }
+
+  .metronome-tool__beat-rail {
+    gap: 4px;
+  }
+
+  .metronome-tool__beat {
+    border-radius: 2px;
+    font-size: 10px;
+  }
+
+  .metronome-tool__state-grid {
+    gap: 10px;
+  }
+}
+

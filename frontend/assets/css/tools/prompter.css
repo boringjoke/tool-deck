@@ -1,0 +1,307 @@
+.prompter-tool__intro {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 18px;
+  border-left: 3px solid var(--td-teal);
+  padding-left: 12px;
+}
+
+.prompter-tool__intro h2,
+.prompter-tool__intro p {
+  margin: 0;
+}
+
+.prompter-tool__intro h2 {
+  color: var(--td-text);
+  font-size: clamp(20px, 2.5vw, 28px);
+  letter-spacing: -0.04em;
+}
+
+.prompter-tool__intro p {
+  color: var(--td-text-muted);
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.prompter-tool__kicker {
+  color: var(--td-teal) !important;
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px !important;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+}
+
+.prompter-tool__textarea {
+  min-height: 220px;
+  resize: vertical;
+  line-height: 1.65;
+}
+
+.prompter-tool__settings-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.prompter-tool__settings-grid .tool-field__label strong {
+  color: var(--td-teal);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.prompter-tool__toggle {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 16px;
+  border: 1px solid var(--td-border);
+  background: var(--td-surface-muted);
+  padding: 11px 12px;
+  cursor: pointer;
+}
+
+.prompter-tool__toggle input {
+  flex: 0 0 auto;
+  margin-top: 2px;
+  accent-color: var(--td-teal);
+}
+
+.prompter-tool__toggle span {
+  display: grid;
+  gap: 3px;
+}
+
+.prompter-tool__toggle strong {
+  color: var(--td-text);
+  font-size: 12px;
+}
+
+.prompter-tool__toggle small {
+  color: var(--td-text-muted);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.prompter-tool__actions {
+  margin-top: 18px;
+}
+
+.prompter-tool__hint {
+  margin: 14px 0 0;
+}
+
+.prompter-tool__stage-shell {
+  display: grid;
+  gap: 12px;
+}
+
+.prompter-tool__stage {
+  position: relative;
+  min-height: 520px;
+  max-height: 70vh;
+  overflow: hidden;
+  isolation: isolate;
+  border: 1px solid #26344b;
+  border-radius: 8px;
+  background: #0a0f1d;
+  color: #f7f9fc;
+  outline: none;
+}
+
+.prompter-tool__stage::before {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 46%, rgb(38 91 113 / 18%), transparent 34%),
+    linear-gradient(180deg, rgb(5 8 17 / 78%), transparent 22%, transparent 78%, rgb(5 8 17 / 88%));
+  content: '';
+  pointer-events: none;
+}
+
+.prompter-tool__stage:focus-visible {
+  border-color: var(--td-teal);
+  box-shadow: 0 0 0 3px rgb(87 211 196 / 18%);
+}
+
+.prompter-tool__stage:fullscreen {
+  width: 100vw;
+  height: 100vh;
+  min-height: 100vh;
+  max-height: none;
+  border: 0;
+  border-radius: 0;
+}
+
+.prompter-tool__track {
+  position: relative;
+  z-index: 1;
+  min-height: 100%;
+  padding: 50vh clamp(20px, 8vw, 112px);
+  will-change: transform;
+}
+
+.prompter-tool__track p {
+  max-width: 30em;
+  margin: 0 auto;
+  color: #f7f9fc;
+  font-size: var(--prompter-font-size);
+  font-weight: 750;
+  letter-spacing: 0.01em;
+  line-height: 1.58;
+  overflow-wrap: anywhere;
+  text-align: center;
+  text-shadow: 0 2px 18px rgb(0 0 0 / 25%);
+  white-space: pre-wrap;
+}
+
+.prompter-tool__stage--mirror .prompter-tool__track p {
+  /* The inline transform mirrors the entire text track while the guide stays readable. */
+}
+
+.prompter-tool__stage-chrome {
+  position: absolute;
+  z-index: 3;
+  right: 22px;
+  left: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: rgb(219 231 241 / 62%);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  pointer-events: none;
+  text-transform: uppercase;
+}
+
+.prompter-tool__stage-chrome--top {
+  top: 20px;
+}
+
+.prompter-tool__stage-chrome--bottom {
+  bottom: 20px;
+  text-transform: none;
+}
+
+.prompter-tool__reading-guide {
+  position: absolute;
+  z-index: 2;
+  top: 46%;
+  right: 22px;
+  left: 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: rgb(87 211 196 / 82%);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  pointer-events: none;
+}
+
+.prompter-tool__reading-guide i {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, rgb(87 211 196 / 66%), rgb(87 211 196 / 12%));
+  box-shadow: 0 0 14px rgb(87 211 196 / 32%);
+}
+
+.prompter-tool__stage-actions {
+  position: absolute;
+  z-index: 4;
+  right: 22px;
+  bottom: 48px;
+  left: 22px;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+}
+
+.prompter-tool__stage-button {
+  min-height: 34px;
+  border: 1px solid rgb(87 211 196 / 68%);
+  border-radius: 5px;
+  background: rgb(11 28 40 / 86%);
+  padding: 0 14px;
+  color: #e8fffb;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.prompter-tool__stage-button:hover {
+  border-color: var(--td-teal);
+  background: rgb(20 62 73 / 92%);
+}
+
+.prompter-tool__stage-button:focus-visible {
+  outline: 2px solid var(--td-teal);
+  outline-offset: 2px;
+}
+
+.prompter-tool__stage-button--quiet {
+  border-color: rgb(219 231 241 / 30%);
+  background: rgb(10 15 29 / 74%);
+  color: rgb(247 249 252 / 78%);
+}
+
+.prompter-tool__notices {
+  display: grid;
+  gap: 5px;
+  border-left: 3px solid var(--td-amber);
+  background: var(--td-surface-muted);
+  padding: 10px 12px;
+}
+
+.prompter-tool__notices p,
+.prompter-tool__privacy {
+  margin: 0;
+  color: var(--td-text-muted);
+  font-size: 11px;
+  line-height: 1.55;
+}
+
+.prompter-tool__privacy {
+  color: var(--td-text-subtle);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prompter-tool__track {
+    will-change: auto;
+  }
+
+  .prompter-tool__stage-button {
+    transition: none;
+  }
+}
+
+@media (max-width: 640px) {
+  .prompter-tool__settings-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prompter-tool__stage {
+    min-height: 420px;
+    max-height: 68vh;
+  }
+
+  .prompter-tool__track {
+    padding-right: 18px;
+    padding-left: 18px;
+  }
+
+  .prompter-tool__stage-chrome,
+  .prompter-tool__reading-guide {
+    right: 14px;
+    left: 14px;
+  }
+
+  .prompter-tool__stage-chrome {
+    font-size: 9px;
+  }
+}
+

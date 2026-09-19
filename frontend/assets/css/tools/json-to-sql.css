@@ -1,0 +1,146 @@
+.json-to-sql-tool > .tool-input-panel,
+.json-to-sql-tool > .tool-result-panel {
+  display: flex;
+  min-width: 0;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.json-to-sql-tool > .tool-input-panel .tool-panel__body,
+.json-to-sql-tool > .tool-result-panel .tool-panel__body {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.json-to-sql-tool__dialect-field {
+  gap: 8px;
+}
+
+.json-to-sql-tool__dialect {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  width: fit-content;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  color: var(--td-text-muted);
+  padding: 0 12px;
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.json-to-sql-tool__editor {
+  position: relative;
+  min-width: 0;
+  min-height: 280px;
+  overflow: hidden;
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+}
+
+.json-to-sql-tool__editor:focus-within {
+  background: var(--td-surface);
+}
+
+.json-to-sql-tool__editor--error {
+  background: var(--td-surface-muted);
+  box-shadow: 0 0 0 1px #efb4ad;
+}
+
+.json-to-sql-tool__editor--error .json-to-sql-tool__input {
+  border-color: #efb4ad;
+}
+
+.json-to-sql-tool__editor-highlights {
+  position: absolute;
+  z-index: 0;
+  inset: 1px;
+  min-width: 0;
+  margin: 0;
+  padding: 10px 12px;
+  color: transparent;
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: inherit;
+  font-weight: 400;
+  line-height: 1.65;
+  pointer-events: none;
+  user-select: none;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  tab-size: 8;
+}
+
+.json-to-sql-tool__editor-highlights code {
+  display: block;
+  font: inherit;
+}
+
+.json-to-sql-tool__editor-highlight-line {
+  display: block;
+  min-width: 0;
+  min-height: 1.65em;
+  color: transparent;
+}
+
+.json-to-sql-tool__editor-highlight-line--error {
+  background: #fff4f2;
+  box-shadow: inset 4px 0 0 #efb4ad;
+}
+
+.json-to-sql-tool__input {
+  min-height: 280px;
+  position: relative;
+  z-index: 1;
+  display: block;
+  background: transparent;
+  tab-size: 8;
+}
+
+.json-to-sql-tool__input:focus {
+  background: transparent;
+}
+
+.json-to-sql-tool__input::selection {
+  background: rgb(37 99 235 / 22%);
+  color: transparent;
+}
+
+.json-to-sql-tool__control--error {
+  border-color: #efb4ad;
+  background: #fff4f2;
+}
+
+.json-to-sql-tool__output {
+  min-width: 0;
+  max-height: min(62vh, 560px);
+  overflow: auto;
+  margin: 0;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  color: var(--td-text);
+  padding: 14px;
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 13px;
+  line-height: 1.65;
+  tab-size: 2;
+  white-space: pre;
+}
+
+.json-to-sql-tool__output code {
+  font: inherit;
+}
+
+.json-to-sql-tool__preserved-result {
+  grid-column: 1 / -1;
+}
+
+.json-to-sql-tool__preserved-result .tool-note {
+  margin-top: -4px;
+  margin-bottom: 12px;
+}
+

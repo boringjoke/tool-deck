@@ -1,0 +1,117 @@
+/* Barcode detail alignment: a compact format selector with an export-ready scan preview. */
+.barcode-tool {
+  gap: 14px 18px;
+}
+
+.barcode-tool > .tool-input-panel,
+.barcode-tool > .tool-result-panel,
+.barcode-tool .tool-panel__body {
+  min-width: 0;
+}
+
+.barcode-tool__content-field {
+  min-width: 0;
+}
+
+.barcode-tool__content-input {
+  min-height: 144px;
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 12.5px;
+}
+
+.barcode-tool__settings {
+  align-items: end;
+  margin-top: 12px;
+}
+
+.barcode-tool__fixed-settings {
+  display: grid;
+  min-width: 0;
+  gap: 6px;
+  align-content: start;
+}
+
+.barcode-tool__fixed-settings .tool-note {
+  margin-top: 0;
+}
+
+.barcode-tool__result {
+  display: grid;
+  min-width: 0;
+  gap: 12px;
+}
+
+.barcode-tool__result-label {
+  margin: 0;
+  color: var(--td-text-muted);
+  font-size: 12px;
+}
+
+.barcode-tool__preview {
+  display: grid;
+  min-width: 0;
+  min-height: 190px;
+  place-items: center;
+  overflow-x: auto;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: #fff;
+  padding: clamp(16px, 4vw, 28px);
+}
+
+.barcode-tool__preview img {
+  display: block;
+  width: min(100%, 560px);
+  height: auto;
+}
+
+.barcode-tool__meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.barcode-tool__meta div {
+  min-width: 0;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  padding: 9px 10px;
+}
+
+.barcode-tool__meta dt {
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+}
+
+.barcode-tool__meta dd {
+  overflow-wrap: anywhere;
+  margin: 5px 0 0;
+  color: var(--td-text);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.barcode-tool__stale-note {
+  margin-top: 0;
+  color: var(--td-amber);
+}
+
+@media (max-width: 640px) {
+  .barcode-tool {
+    gap: 14px;
+  }
+
+  .barcode-tool__settings,
+  .barcode-tool__meta {
+    grid-template-columns: 1fr;
+  }
+
+  .barcode-tool__preview {
+    min-height: 158px;
+    padding: 14px 10px;
+  }
+}
+

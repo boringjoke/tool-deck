@@ -1,0 +1,43 @@
+.unit-converter-tool > .tool-result-panel {
+  display: flex;
+  min-width: 0;
+  min-height: 100%;
+  flex-direction: column;
+}
+
+.unit-converter-tool > .tool-result-panel .tool-panel__body {
+  display: flex;
+  flex: 1;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.unit-converter-tool__input {
+  min-height: 42px;
+}
+
+.unit-converter-tool__output {
+  min-height: 112px;
+  align-content: center;
+  margin-top: 0;
+}
+
+.unit-converter-tool__output .output-block__value {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.unit-converter-tool__stale-note {
+  margin-top: 0;
+  margin-bottom: 12px;
+}
+
+.unit-converter-tool__preserved-result {
+  grid-column: 1 / -1;
+}
+
+.unit-converter-tool__preserved-result .tool-note {
+  margin-top: -4px;
+  margin-bottom: 12px;
+}
+

@@ -1,0 +1,339 @@
+.world-time-tool > .tool-input-panel,
+.world-time-tool > .tool-result-panel,
+.world-time-tool .tool-panel__body {
+  min-width: 0;
+}
+
+.world-time-tool__catalog,
+.world-time-tool__selected {
+  margin-top: 18px;
+}
+
+.world-time-tool__builtin-combobox {
+  position: relative;
+  z-index: 2;
+  margin-top: 8px;
+}
+
+.world-time-tool__section-heading {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.world-time-tool__count {
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.world-time-tool__selected-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.world-time-tool__catalog-dropdown {
+  position: absolute;
+  z-index: 3;
+  top: calc(100% + 6px);
+  right: 0;
+  left: 0;
+  display: grid;
+  gap: 6px;
+  max-height: 390px;
+  overflow-y: auto;
+  border: 1px solid var(--td-border-strong);
+  border-radius: var(--td-radius);
+  background: var(--td-surface);
+  box-shadow: 0 8px 18px rgb(28 34 48 / 10%), 0 2px 4px rgb(28 34 48 / 5%);
+  padding: 8px;
+}
+
+.world-time-tool__selected-item {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  padding: 9px 10px 9px 12px;
+}
+
+.world-time-tool__catalog-item {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  color: var(--td-text);
+  cursor: pointer;
+  font: inherit;
+  padding: 9px 10px 9px 12px;
+  text-align: left;
+}
+
+.world-time-tool__catalog-item:hover,
+.world-time-tool__catalog-item[data-highlighted='true']:not(:disabled) {
+  border-color: var(--td-border-strong);
+  background: var(--td-surface);
+}
+
+.world-time-tool__catalog-item:focus-visible {
+  border-color: var(--td-primary);
+  outline: 3px solid rgb(37 99 235 / 12%);
+  outline-offset: 1px;
+}
+
+.world-time-tool__catalog-item:disabled {
+  cursor: default;
+  opacity: 0.58;
+}
+
+.world-time-tool__option-copy {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.world-time-tool__option-title {
+  display: flex;
+  min-width: 0;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.world-time-tool__option-title > span {
+  overflow: hidden;
+  color: var(--td-text-muted);
+  font-family: 'Inter Tight', Inter, 'PingFang SC', sans-serif;
+  font-size: 11px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.world-time-tool__option-country {
+  color: var(--td-text-subtle);
+  font-size: 11px;
+}
+
+.world-time-tool__option-copy strong {
+  overflow: hidden;
+  color: var(--td-text);
+  font-size: 13px;
+  font-weight: 650;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.world-time-tool__option-meta {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px 8px;
+  color: var(--td-text-subtle);
+  font-size: 10px;
+}
+
+.world-time-tool__option-meta span + span::before {
+  padding-right: 8px;
+  color: var(--td-border-strong);
+  content: '·';
+}
+
+.world-time-tool__option-copy code {
+  overflow-wrap: anywhere;
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+}
+
+.world-time-tool__catalog-status {
+  flex: 0 0 auto;
+  color: var(--td-text-subtle);
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+.world-time-tool__custom-field {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: end;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.world-time-tool__custom-field > .button {
+  min-height: 38px;
+}
+
+.world-time-tool__empty-note {
+  margin-top: 9px;
+  border-left: 2px solid var(--td-border-strong);
+  padding-left: 10px;
+}
+
+.world-time-tool__snapshots {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.world-time-tool__snapshot {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 1px solid var(--td-border);
+  border-left: 3px solid var(--td-teal);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  padding: 15px 15px 13px;
+}
+
+.world-time-tool__snapshot-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.world-time-tool__snapshot-source {
+  display: block;
+  color: var(--td-teal);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+  letter-spacing: 0.02em;
+}
+
+.world-time-tool__snapshot h3 {
+  margin: 4px 0 0;
+  color: var(--td-text);
+  font-family: 'Inter Tight', Inter, 'PingFang SC', sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.world-time-tool__snapshot-location {
+  display: block;
+  margin-top: 3px;
+  color: var(--td-text-muted);
+  font-size: 11px;
+}
+
+.world-time-tool__remove-button {
+  display: inline-flex;
+  width: 26px;
+  height: 26px;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: var(--td-text-subtle);
+  cursor: pointer;
+  font-size: 20px;
+  line-height: 1;
+}
+
+.world-time-tool__remove-button:hover {
+  border-color: var(--td-border);
+  background: var(--td-surface);
+  color: var(--td-text);
+}
+
+.world-time-tool__remove-button:focus-visible {
+  border-color: var(--td-primary);
+  outline: 3px solid rgb(37 99 235 / 12%);
+  outline-offset: 1px;
+}
+
+.world-time-tool__clock {
+  display: grid;
+  gap: 5px;
+  margin-top: 22px;
+  border-top: 1px solid var(--td-border);
+  border-bottom: 1px solid var(--td-border);
+  padding: 12px 0 13px;
+}
+
+.world-time-tool__date,
+.world-time-tool__weekday {
+  color: var(--td-text-muted);
+  font-size: 12px;
+}
+
+.world-time-tool__date {
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+}
+
+.world-time-tool__time {
+  color: var(--td-primary);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: clamp(28px, 4vw, 42px);
+  font-weight: 600;
+  letter-spacing: -0.07em;
+  line-height: 1.05;
+}
+
+.world-time-tool__weekday {
+  color: var(--td-teal);
+  font-weight: 600;
+}
+
+.world-time-tool__meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 12px 0 0;
+}
+
+.world-time-tool__meta div {
+  min-width: 0;
+}
+
+.world-time-tool__meta dt {
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+}
+
+.world-time-tool__meta dd {
+  overflow-wrap: anywhere;
+  margin: 4px 0 0;
+  color: var(--td-text-muted);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 11px;
+}
+
+@media (max-width: 640px) {
+  .world-time-tool__catalog-dropdown {
+    max-height: 330px;
+  }
+
+  .world-time-tool__custom-field {
+    grid-template-columns: 1fr;
+  }
+
+  .world-time-tool__custom-field > .button {
+    width: 100%;
+  }
+
+  .world-time-tool__snapshots {
+    grid-template-columns: 1fr;
+  }
+
+.world-time-tool__time {
+  font-size: clamp(30px, 13vw, 42px);
+}
+}
+

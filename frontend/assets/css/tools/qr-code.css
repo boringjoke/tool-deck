@@ -1,0 +1,126 @@
+/* QR code-detail alignment: compact generation controls with a scan-ready preview. */
+.qr-code-tool {
+  gap: 14px 18px;
+}
+
+.qr-code-tool > .tool-input-panel,
+.qr-code-tool > .tool-result-panel,
+.qr-code-tool .tool-panel__body {
+  min-width: 0;
+}
+
+.qr-code-tool__content-field {
+  min-width: 0;
+}
+
+.qr-code-tool__content-input {
+  min-height: 168px;
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 12.5px;
+}
+
+.qr-code-tool__byte-count {
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.qr-code-tool__byte-count--over {
+  color: #b42318;
+}
+
+.qr-code-tool__settings {
+  align-items: end;
+  margin-top: 12px;
+}
+
+.qr-code-tool__fixed-settings {
+  display: grid;
+  min-width: 0;
+  gap: 6px;
+  align-content: start;
+}
+
+.qr-code-tool__fixed-settings .tool-note {
+  margin-top: 0;
+}
+
+.qr-code-tool__result {
+  display: grid;
+  min-width: 0;
+  gap: 12px;
+}
+
+.qr-code-tool__result-label {
+  margin: 0;
+  color: var(--td-text-muted);
+  font-size: 12px;
+}
+
+.qr-code-tool__preview {
+  display: grid;
+  min-width: 0;
+  place-items: center;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: #fff;
+  padding: clamp(12px, 4vw, 24px);
+}
+
+.qr-code-tool__preview img {
+  display: block;
+  width: min(100%, 320px);
+  height: auto;
+  aspect-ratio: 1;
+  image-rendering: pixelated;
+}
+
+.qr-code-tool__meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.qr-code-tool__meta div {
+  min-width: 0;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  padding: 9px 10px;
+}
+
+.qr-code-tool__meta dt {
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+}
+
+.qr-code-tool__meta dd {
+  overflow-wrap: anywhere;
+  margin: 5px 0 0;
+  color: var(--td-text);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.qr-code-tool__stale-note {
+  margin-top: 0;
+  color: var(--td-amber);
+}
+
+@media (max-width: 640px) {
+  .qr-code-tool {
+    gap: 14px;
+  }
+
+  .qr-code-tool__settings {
+    grid-template-columns: 1fr;
+  }
+
+  .qr-code-tool__meta {
+    grid-template-columns: 1fr;
+  }
+}
+

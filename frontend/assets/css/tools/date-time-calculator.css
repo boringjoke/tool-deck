@@ -1,0 +1,114 @@
+/* Date calculator: quiet controls with a clear two-mode calculation rail. */
+.date-time-calculator-tool {
+  gap: 14px 18px;
+}
+
+.date-time-calculator-tool__mode-tabs {
+  display: flex;
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.date-time-calculator-tool__mode-tab {
+  min-height: 32px;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface);
+  color: var(--td-text-muted);
+  cursor: pointer;
+  padding: 0 14px;
+  font-size: 13px;
+  font-weight: 500;
+  transition: border-color 150ms ease, background-color 150ms ease, color 150ms ease;
+}
+
+.date-time-calculator-tool__mode-tab:hover {
+  border-color: var(--td-border-strong);
+  color: var(--td-text);
+}
+
+.date-time-calculator-tool__mode-tab--active {
+  border-color: var(--td-primary);
+  background: var(--td-primary);
+  color: #fff;
+}
+
+.date-time-calculator-tool__mode-tab--active:hover {
+  border-color: var(--td-primary-hover);
+  background: var(--td-primary-hover);
+  color: #fff;
+}
+
+.date-time-calculator-tool__date-input,
+.date-time-calculator-tool__time-input,
+.date-time-calculator-tool__amount-input {
+  min-width: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.date-time-calculator-tool > .tool-input-panel,
+.date-time-calculator-tool > .tool-result-panel,
+.date-time-calculator-tool .tool-panel__body,
+.date-time-calculator-tool__date-groups,
+.date-time-calculator-tool__date-group {
+  min-width: 0;
+}
+
+.date-time-calculator-tool__date-groups {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+}
+
+.date-time-calculator-tool__date-group {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 160px), 1fr));
+  gap: 12px;
+  align-items: end;
+}
+
+.date-time-calculator-tool__date-group--single {
+  max-width: 720px;
+}
+
+.date-time-calculator-tool__stale-note {
+  margin-top: 0;
+  color: var(--td-amber);
+}
+
+.date-time-calculator-tool__stats {
+  margin-bottom: 14px;
+}
+
+.date-time-calculator-tool__breakdown,
+.date-time-calculator-tool__date-output {
+  margin-top: 0;
+}
+
+.date-time-calculator-tool__breakdown .output-block__value,
+.date-time-calculator-tool__date-output .output-block__value {
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+@media (max-width: 640px) {
+  .date-time-calculator-tool {
+    gap: 14px;
+  }
+
+  .date-time-calculator-tool__mode-tabs {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+
+  .date-time-calculator-tool__mode-tab {
+    width: 100%;
+    text-align: left;
+  }
+
+  .date-time-calculator-tool__date-group {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+

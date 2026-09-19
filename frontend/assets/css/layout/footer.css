@@ -1,0 +1,23 @@
+.site-footer {
+  border-top: 1px solid var(--td-border);
+  background: var(--td-surface);
+}
+
+.site-footer__inner {
+  min-height: 58px;
+  color: var(--td-text-subtle);
+  font-size: 12px;
+}
+
+.site-footer__brand {
+  color: var(--td-text-muted);
+  font-family: 'Inter Tight', Inter, 'PingFang SC', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.site-footer__note {
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 11px;
+}
+

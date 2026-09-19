@@ -1,0 +1,64 @@
+@media (max-width: 640px) {
+  .site-container {
+    width: min(100% - 32px, 1080px);
+  }
+
+  .page-section {
+    padding: 48px 0 64px;
+  }
+
+  .home-hero {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 28px;
+    padding: 14px 0 48px;
+  }
+
+  .registry-signal {
+    flex-basis: auto;
+  }
+
+  .search-panel__topline {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .category-grid,
+  .tool-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .empty-state {
+    padding: 22px;
+  }
+
+  .foundation-card {
+    align-items: flex-start;
+    flex-direction: column;
+    margin-top: 32px;
+  }
+
+  .foundation-card__actions {
+    width: 100%;
+  }
+
+  .foundation-card__actions .button {
+    flex: 1;
+  }
+
+  .site-footer__inner {
+    align-items: flex-start;
+    flex-direction: column;
+    justify-content: center;
+    gap: 4px;
+    padding: 14px 0;
+  }
+}
+

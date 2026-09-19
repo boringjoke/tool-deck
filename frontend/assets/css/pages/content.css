@@ -1,0 +1,46 @@
+.prose-block {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 28px;
+  color: var(--td-text-muted);
+  font-size: 15px;
+  line-height: 1.8;
+}
+
+.prose-block p {
+  margin: 0;
+}
+
+.privacy-callout {
+  margin-top: 28px;
+  border: 1px solid var(--td-teal-border);
+  border-radius: var(--td-radius);
+  background: var(--td-teal-soft);
+  color: #0a7062;
+  padding: 14px 16px;
+  line-height: 1.7;
+}
+
+.error-page {
+  display: flex;
+  min-height: 60vh;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  padding-top: 48px;
+  padding-bottom: 48px;
+}
+
+.error-page__code {
+  margin-bottom: 18px;
+  color: var(--td-border-strong);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 64px;
+  line-height: 1;
+}
+
+.error-page .button {
+  margin-top: 24px;
+}
+

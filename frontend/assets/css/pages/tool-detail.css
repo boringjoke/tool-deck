@@ -1,0 +1,231 @@
+/* Figma Make detail-page alignment: header hierarchy, compact metadata and info columns. */
+.tool-shell {
+  margin: 0;
+}
+
+.tool-shell__header {
+  background: var(--td-surface);
+  border-bottom: 1px solid var(--td-border);
+  padding: 22px 0 20px;
+}
+
+.tool-shell__header-inner {
+  display: grid;
+  gap: 14px;
+}
+
+.tool-shell__breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  color: var(--td-text-subtle);
+  font-size: 12.5px;
+}
+
+.tool-shell__breadcrumb-link {
+  color: var(--td-text-subtle);
+  text-decoration: none;
+}
+
+.tool-shell__breadcrumb-link:hover {
+  color: var(--td-text);
+}
+
+.tool-shell__heading {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.tool-shell__heading-copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.tool-shell__title-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.tool-shell__title {
+  margin: 0;
+  color: var(--td-text);
+  font-family: 'Inter Tight', Inter, 'PingFang SC', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+}
+
+.tool-shell__description {
+  margin: 3px 0 0;
+  color: var(--td-text-muted);
+  font-size: 13.5px;
+}
+
+.status-chip {
+  display: inline-flex;
+  height: 20px;
+  align-items: center;
+  gap: 4px;
+  border-radius: 3px;
+  background: var(--td-surface-muted);
+  padding: 0 8px;
+}
+
+.status-chip__dot {
+  width: 5px;
+  height: 5px;
+  flex: 0 0 5px;
+  border-radius: 50%;
+  background: currentColor;
+  opacity: 0.5;
+}
+
+.status-chip--teal .status-chip__dot {
+  opacity: 1;
+}
+
+.tool-detail-icon {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  flex: 0 0 42px;
+  place-items: center;
+  border: 1px solid var(--icon-border, var(--td-border));
+  border-radius: 10px;
+  background: var(--icon-bg, var(--td-surface-muted));
+  color: var(--icon-color, var(--td-text-muted));
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tool-detail-icon--developer-text {
+  --icon-bg: #ebf1fe;
+  --icon-border: #c7d7fb;
+  --icon-color: var(--td-primary);
+}
+
+.tool-detail-icon--date-conversion {
+  --icon-bg: #e9f5fb;
+  --icon-border: #bfdfef;
+  --icon-color: #0369a1;
+}
+
+.tool-detail-icon--content-generation {
+  --icon-bg: #e6f7f5;
+  --icon-border: #bce5df;
+  --icon-color: var(--td-teal);
+}
+
+.tool-detail-icon--interactive {
+  --icon-bg: #f0eafe;
+  --icon-border: #d8c8f5;
+  --icon-color: #7048cc;
+}
+
+.tool-detail-icon--knowledge {
+  --icon-bg: #fff4db;
+  --icon-border: #f0d49b;
+  --icon-color: #a35c00;
+}
+
+.tool-shell__content {
+  min-height: 240px;
+  padding: 24px 0 0;
+}
+
+.tool-shell__body {
+  padding-bottom: 60px;
+}
+
+.tool-shell__info {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 28px;
+}
+
+.tool-shell__info-title {
+  margin: 0 0 10px;
+  color: var(--td-text-muted);
+  font-family: 'Inter Tight', Inter, 'PingFang SC', sans-serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  line-height: 1.3;
+  text-transform: uppercase;
+}
+
+.tool-shell__info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin: 0;
+  padding-left: 18px;
+  color: var(--td-text-muted);
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.tool-shell__info-list li {
+  padding-left: 2px;
+}
+
+.favorite-button--labeled {
+  width: auto;
+  height: 34px;
+  min-width: 78px;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+  border-color: var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  color: var(--td-text-muted);
+  padding: 0 12px;
+  font-size: 13px;
+}
+
+.favorite-button--labeled.favorite-button--active {
+  border-color: var(--td-amber-border);
+  background: var(--td-amber-soft);
+  color: var(--td-amber);
+}
+
+.tool-workspace--split {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: stretch;
+}
+
+.tool-workspace--split > .tool-help {
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 640px) {
+  .tool-shell__heading {
+    align-items: flex-start;
+    flex-wrap: wrap;
+  }
+
+  .tool-shell__heading .favorite-button--labeled {
+    margin-left: 56px;
+  }
+
+  .tool-shell__info {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-workspace--split {
+    grid-template-columns: 1fr;
+  }
+
+  .tool-workspace--split > .tool-help {
+    grid-column: auto;
+  }
+}
+

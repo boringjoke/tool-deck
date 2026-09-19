@@ -1,0 +1,140 @@
+/* Shield detail alignment: keep the generated badge as the visual anchor of the result panel. */
+.shield-image-tool {
+  gap: 14px 18px;
+}
+
+.shield-image-tool > .tool-input-panel,
+.shield-image-tool > .tool-result-panel,
+.shield-image-tool .tool-panel__body {
+  min-width: 0;
+}
+
+.shield-image-tool .tool-panel__title {
+  flex: 0 0 auto;
+  white-space: nowrap;
+}
+
+.shield-image-tool > .tool-input-panel .tool-panel__header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0;
+}
+
+.shield-image-tool .tool-panel__description {
+  min-width: 0;
+}
+
+.shield-image-tool__text-fields,
+.shield-image-tool__color-fields {
+  align-items: start;
+}
+
+.shield-image-tool__text-fields > .tool-field + .tool-field,
+.shield-image-tool__color-fields > .tool-field + .tool-field {
+  margin-top: 0;
+}
+
+.shield-image-tool__color-fields {
+  margin-top: 14px;
+}
+
+.shield-image-tool__color-input {
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  letter-spacing: 0.02em;
+}
+
+.shield-image-tool__input-meta {
+  display: block;
+  margin-top: 6px;
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
+.shield-image-tool__fixed-note {
+  margin-top: 14px;
+}
+
+.shield-image-tool__result {
+  display: grid;
+  min-width: 0;
+  gap: 12px;
+}
+
+.shield-image-tool__result-label {
+  margin: 0;
+  color: var(--td-text-muted);
+  font-size: 12px;
+}
+
+.shield-image-tool__preview {
+  display: grid;
+  min-width: 0;
+  min-height: 180px;
+  place-items: center;
+  overflow-x: auto;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  padding: clamp(20px, 5vw, 36px);
+}
+
+.shield-image-tool__preview img {
+  display: block;
+  width: min(100%, 520px);
+  height: auto;
+  filter: drop-shadow(0 8px 12px rgb(28 34 48 / 12%));
+}
+
+.shield-image-tool__meta {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: 0;
+}
+
+.shield-image-tool__meta div {
+  min-width: 0;
+  border: 1px solid var(--td-border);
+  border-radius: var(--td-radius);
+  background: var(--td-surface-muted);
+  padding: 9px 10px;
+}
+
+.shield-image-tool__meta dt {
+  color: var(--td-text-subtle);
+  font-family: 'JetBrains Mono', 'Cascadia Code', monospace;
+  font-size: 10px;
+}
+
+.shield-image-tool__meta dd {
+  overflow-wrap: anywhere;
+  margin: 5px 0 0;
+  color: var(--td-text);
+  font-size: 12px;
+  font-variant-numeric: tabular-nums;
+}
+
+.shield-image-tool__stale-note {
+  margin-top: 0;
+  color: var(--td-amber);
+}
+
+@media (max-width: 640px) {
+  .shield-image-tool {
+    gap: 14px;
+  }
+
+  .shield-image-tool__text-fields,
+  .shield-image-tool__color-fields,
+  .shield-image-tool__meta {
+    grid-template-columns: 1fr;
+  }
+
+  .shield-image-tool__preview {
+    min-height: 150px;
+    padding: 18px 12px;
+  }
+}
+
